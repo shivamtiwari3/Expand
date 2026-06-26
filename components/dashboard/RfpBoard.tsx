@@ -75,6 +75,11 @@ function RespondModal({ rfp, onClose }: ModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    fetch("/api/rfp-responses", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rfpId: rfp.id, district: rfp.district, name, org, message }),
+    }).catch(() => {});
     setSubmitted(true);
   };
 

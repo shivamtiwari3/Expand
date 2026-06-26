@@ -7,6 +7,14 @@ import {
   matchTool,
   liveMarketTool,
   rankGapsTool,
+  osmAmenitiesTool,
+  liveAmenitiesTool,
+  propertyListingsTool,
+  investorProfilesTool,
+  landParcelsTool,
+  transactionHistoryTool,
+  liveEvoostTool,
+  communityMetricsTool,
   cityMeta,
 } from "./tools";
 import { DISTRICTS, getDistrict, DATA, CATEGORIES } from "@/lib/data";
@@ -87,26 +95,48 @@ async function gather(s: S): Promise<Partial<S>> {
     const parts: string[] = [cityMeta()];
     if (area) {
       const named = getDistrict(area);
-      if (named) parts.push(await districtFactsTool.invoke({ name: named.name }));
+      if (named) {
+        const [facts, listings, parcels, investors] = await Promise.all([
+          districtFactsTool.invoke({ name: named.name }),
+          propertyListingsTool.invoke({ district: named.name }),
+          landParcelsTool.invoke({ district: named.name }),
+          investorProfilesTool.invoke({ district: named.name }),
+        ]);
+        parts.push(facts, listings, parcels, investors);
+      }
     }
     parts.push(emirateGapSummary(emirate, sectors));
     return { context: parts.join("\n") };
   }
 
   if (s.mode === "district" && s.district) {
-    const [facts, fc, match, live] = await Promise.all([
+    const [facts, fc, match, live, osm, listings, parcels, transactions, community, liveApi] = await Promise.all([
       districtFactsTool.invoke({ name: s.district }),
       forecastTool.invoke({ name: s.district, horizonMonths: 12 }),
       matchTool.invoke({ name: s.district }),
       liveMarketTool.invoke({ name: s.district }),
+      osmAmenitiesTool.invoke({ district: s.district }),
+      propertyListingsTool.invoke({ district: s.district }),
+      landParcelsTool.invoke({ district: s.district }),
+      transactionHistoryTool.invoke({ district: s.district }),
+      communityMetricsTool.invoke({ district: s.district }),
+      liveEvoostTool.invoke({ transaction_type: "sale", limit: 10 }),
     ]);
-    return { context: [cityMeta(), facts, fc, match, live].join("\n") };
+    return { context: [cityMeta(), facts, fc, match, live, osm, listings, parcels, transactions, community, liveApi].join("\n") };
   }
   // city-wide Q&A
   const cat = detectCategory(s.question);
   const named = detectDistrict(s.question);
   const parts = [cityMeta(), await rankGapsTool.invoke({ limit: 8, category: cat })];
-  if (named) parts.push(await districtFactsTool.invoke({ name: named }));
+  if (named) {
+    const [facts, osm, listings, transactions] = await Promise.all([
+      districtFactsTool.invoke({ name: named }),
+      osmAmenitiesTool.invoke({ district: named }),
+      propertyListingsTool.invoke({ district: named }),
+      transactionHistoryTool.invoke({ district: named }),
+    ]);
+    parts.push(facts, osm, listings, transactions);
+  }
   return { context: parts.join("\n") };
 }
 

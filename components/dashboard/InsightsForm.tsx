@@ -51,7 +51,14 @@ export default function InsightsForm() {
         }),
       });
       const data = await res.json();
-      setResult({ text: data.text ?? "No insight.", source: data.source });
+      const resultText = data.text ?? "No insight.";
+      setResult({ text: resultText, source: data.source });
+      // Persist insight
+      fetch("/api/insights", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ role, emirate, area: area || undefined, sectors, budget: budget || "any", result: resultText }),
+      }).catch(() => {});
     } catch {
       setResult({ text: "Could not reach K2. Try again.", source: "" });
     } finally {

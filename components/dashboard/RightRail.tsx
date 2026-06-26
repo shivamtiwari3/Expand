@@ -25,7 +25,7 @@ export default function RightRail({ initial = "insights" }: { initial?: RailTab 
   return (
     <div className="flex h-full flex-col" data-tour="right-rail">
       {/* tab bar */}
-      <div className="flex shrink-0 items-center gap-1 overflow-x-auto border-b border-border bg-surface/40 px-2 py-2">
+      <div className="flex shrink-0 items-center gap-0.5 overflow-x-auto border-b border-border bg-surface/40 px-1.5 py-2 scrollbar-none">
         {TABS.map((t) => {
           const Icon = t.icon;
           const active = tab === t.id;
@@ -34,13 +34,13 @@ export default function RightRail({ initial = "insights" }: { initial?: RailTab 
               key={t.id}
               onClick={() => setRailTab(t.id)}
               className={cn(
-                "flex items-center gap-1.5 whitespace-nowrap rounded-md px-2.5 py-1.5 text-xs transition",
+                "flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-1.5 text-[11px] transition",
                 active
                   ? "bg-surface-active text-foreground"
                   : "text-foreground-muted hover:bg-surface hover:text-foreground",
               )}
             >
-              <Icon className="size-3.5" />
+              <Icon className="size-3.5 shrink-0" />
               {t.label}
             </button>
           );

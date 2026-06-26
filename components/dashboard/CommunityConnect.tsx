@@ -18,6 +18,7 @@ interface ConnectModalProps {
 }
 
 function ConnectModal({ venture, onClose }: ConnectModalProps) {
+  const { selected } = useDashboard();
   const [name, setName] = useState("");
   const [firm, setFirm] = useState("");
   const [capital, setCapital] = useState("AED <15M");
@@ -49,6 +50,11 @@ function ConnectModal({ venture, onClose }: ConnectModalProps) {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    fetch("/api/venture-connects", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ventureId: venture?.name, district: selected.name, name, firm, capital, message }),
+    }).catch(() => {});
     setSubmitted(true);
   }
 
@@ -454,11 +460,21 @@ export default function CommunityConnect() {
 
   return (
     <>
-      <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
-        {/* LEFT — Ventures */}
-        <div className="flex-1 min-w-0">
-          <div className="mb-4 flex items-center gap-3">
-            <h2 className="font-serif text-xl text-foreground">
+      <div className="flex flex-col gap-6">
+        {/* Investor interest */}
+        <div>
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="font-serif text-lg text-foreground">
+              Investor interest
+            </h2>
+          </div>
+          <InvestorPanel selected={selected} />
+        </div>
+
+        {/* Ventures */}
+        <div>
+          <div className="mb-3 flex items-center gap-3">
+            <h2 className="font-serif text-lg text-foreground">
               Ventures &amp; operators
             </h2>
             <span className="rounded-full border border-border bg-surface-2 px-2 py-0.5 font-mono text-[10px] text-foreground-muted">
@@ -471,7 +487,7 @@ export default function CommunityConnect() {
               key={selected.name}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-4 font-mono text-[11px] text-foreground-muted"
+              className="mb-3 font-mono text-[11px] text-foreground-muted"
             >
               {fitVentures.length} venture{fitVentures.length !== 1 ? "s" : ""} match{fitVentures.length === 1 ? "es" : ""} {selected.name}&apos;s gaps
             </motion.p>
@@ -491,16 +507,6 @@ export default function CommunityConnect() {
               ))}
             </AnimatePresence>
           </div>
-        </div>
-
-        {/* RIGHT — Investor interest */}
-        <div className="w-full lg:w-72 xl:w-80 shrink-0">
-          <div className="mb-4">
-            <h2 className="font-serif text-xl text-foreground">
-              Investor interest
-            </h2>
-          </div>
-          <InvestorPanel selected={selected} />
         </div>
       </div>
 

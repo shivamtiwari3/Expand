@@ -16,6 +16,12 @@ const SEV_COLOR: Record<Severity, string> = {
   critical: "#d9694e",
 };
 
+const SEV_LABEL_SHORT: Record<Severity, string> = {
+  ok: "Served",
+  emerging: "Emerging",
+  critical: "Critical",
+};
+
 export default function DashboardSidebar() {
   const { selected, setSelected, cats, toggleCat } = useDashboard();
   const [open, setOpen] = useState(true);
@@ -38,13 +44,13 @@ export default function DashboardSidebar() {
   return (
     <motion.aside
       initial={false}
-      animate={{ width: open ? 288 : 64 }}
+      animate={{ width: open ? 300 : 56 }}
       transition={{ type: "spring", stiffness: 320, damping: 34 }}
       className="relative z-20 flex h-full shrink-0 flex-col border-r border-border bg-surface/40 backdrop-blur"
       data-tour="sidebar"
     >
       {/* header / toggle */}
-      <div className="flex items-center justify-between gap-2 border-b border-border/60 px-3 py-3">
+      <div className="flex items-center justify-between gap-2 border-b border-border/60 px-4 py-3.5">
         {open && (
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground-muted">
             Districts · {DISTRICTS.length}
@@ -62,19 +68,20 @@ export default function DashboardSidebar() {
       {open ? (
         <>
           {/* severity summary */}
-          <div className="flex items-center gap-3 px-4 pt-3 text-[11px]">
+          <div className="flex items-center gap-4 px-4 py-3 border-b border-border/40">
             {(["critical", "emerging", "ok"] as Severity[]).map((s) => (
-              <span key={s} className="flex items-center gap-1.5 text-foreground-muted">
-                <span className="h-2 w-2 rounded-full" style={{ background: SEV_COLOR[s] }} />
-                {counts[s]}
+              <span key={s} className="flex items-center gap-1.5 text-[11px] text-foreground-muted">
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: SEV_COLOR[s] }} />
+                <span className="font-mono">{counts[s]}</span>
+                <span className="hidden sm:inline text-[10px]">{SEV_LABEL_SHORT[s]}</span>
               </span>
             ))}
           </div>
 
           {/* search */}
-          <div className="px-3 pt-3">
-            <div className="flex items-center gap-2 rounded-md border border-border bg-background/40 px-2.5 py-1.5">
-              <Search className="size-3.5 text-foreground-muted" />
+          <div className="px-3 pt-3 pb-1">
+            <div className="flex items-center gap-2 rounded-lg border border-border bg-background/50 px-3 py-2 focus-within:border-accent/50 transition-colors">
+              <Search className="size-3.5 shrink-0 text-foreground-muted" />
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
@@ -85,7 +92,7 @@ export default function DashboardSidebar() {
           </div>
 
           {/* district list */}
-          <div className="mt-2 flex-1 overflow-y-auto px-2 pb-2">
+          <div className="mt-1 flex-1 overflow-y-auto px-2 pb-2 scrollbar-thin">
             {ranked.map((d) => {
               const sev = severity(d);
               const isSel = selected.name === d.name;
@@ -94,28 +101,37 @@ export default function DashboardSidebar() {
                   key={d.name}
                   onClick={() => setSelected(d.name)}
                   className={cn(
-                    "group flex w-full items-center gap-2.5 rounded-md px-2 py-2 text-left transition",
-                    isSel ? "bg-surface-active" : "hover:bg-surface",
+                    "group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-150",
+                    isSel
+                      ? "bg-accent/10 border border-accent/20"
+                      : "border border-transparent hover:bg-surface hover:border-border/50",
                   )}
                 >
                   <span
-                    className="h-2.5 w-2.5 shrink-0 rounded-full"
+                    className="h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-white/10"
                     style={{ background: SEV_COLOR[sev] }}
                   />
                   <span className="min-w-0 flex-1">
                     <span
                       className={cn(
-                        "block truncate text-[13px]",
-                        isSel ? "text-foreground" : "text-foreground/85",
+                        "block truncate text-[13px] leading-tight",
+                        isSel ? "text-foreground font-medium" : "text-foreground/85",
                       )}
                     >
                       {d.name}
                     </span>
-                    <span className="block font-mono text-[9px] uppercase tracking-wider text-foreground-muted">
+                    <span className="block font-mono text-[9px] uppercase tracking-wider text-foreground-muted mt-0.5">
                       {SEVERITY_LABEL[sev]}
                     </span>
                   </span>
-                  <span className="shrink-0 font-mono text-[10px] text-foreground-muted">
+                  <span
+                    className={cn(
+                      "shrink-0 rounded-md px-1.5 py-0.5 font-mono text-[10px]",
+                      isSel
+                        ? "bg-accent/15 text-accent"
+                        : "text-foreground-muted",
+                    )}
+                  >
                     {d.demand}
                   </span>
                 </button>
@@ -124,11 +140,11 @@ export default function DashboardSidebar() {
           </div>
 
           {/* category filter */}
-          <div className="border-t border-border/60 px-3 py-3">
-            <div className="mb-2 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground-muted">
+          <div className="border-t border-border/60 px-3 py-3.5">
+            <div className="mb-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground-muted">
               Build categories
             </div>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="grid grid-cols-2 gap-1.5">
               {CATEGORY_ORDER.map((c) => {
                 const active = cats.includes(c);
                 return (
@@ -137,14 +153,14 @@ export default function DashboardSidebar() {
                     onClick={() => toggleCat(c)}
                     title={CATEGORY_LABEL[c]}
                     className={cn(
-                      "flex items-center gap-1.5 rounded-full border px-2 py-1 text-[10px] transition",
+                      "flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-[10px] transition-all duration-150",
                       active
                         ? "border-accent/50 bg-accent/10 text-foreground"
-                        : "border-border text-foreground-muted hover:text-foreground",
+                        : "border-border text-foreground-muted hover:border-border hover:bg-surface/50 hover:text-foreground",
                     )}
                   >
-                    <CategoryIcon category={c} size={12} />
-                    <span className="max-w-[68px] truncate">{CATEGORY_LABEL[c]}</span>
+                    <CategoryIcon category={c} size={13} />
+                    <span className="truncate">{CATEGORY_LABEL[c]}</span>
                   </button>
                 );
               })}
@@ -152,8 +168,7 @@ export default function DashboardSidebar() {
           </div>
         </>
       ) : (
-        // collapsed rail: severity dots per district
-        <div className="flex-1 overflow-y-auto px-0 py-2">
+        <div className="flex-1 overflow-y-auto py-2">
           {ranked.map((d) => {
             const sev = severity(d);
             const isSel = selected.name === d.name;
@@ -167,7 +182,7 @@ export default function DashboardSidebar() {
                 <span
                   className={cn(
                     "h-3 w-3 rounded-full ring-offset-2 ring-offset-background transition",
-                    isSel && "ring-2 ring-foreground",
+                    isSel && "ring-2 ring-accent",
                   )}
                   style={{ background: SEV_COLOR[sev] }}
                 />

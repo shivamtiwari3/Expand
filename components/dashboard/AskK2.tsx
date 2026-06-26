@@ -39,6 +39,12 @@ export default function AskK2() {
     setQ("");
     setMsgs((m) => [...m, { role: "user", text: question }]);
     setLoading(true);
+    // Persist user message
+    fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ role: "user", content: question, district: selected.name }),
+    }).catch(() => {});
     try {
       const res = await fetch("/api/run", {
         method: "POST",
@@ -46,7 +52,14 @@ export default function AskK2() {
         body: JSON.stringify({ mode: "qa", question }),
       });
       const data = await res.json();
-      setMsgs((m) => [...m, { role: "ai", text: data.text ?? "No answer.", source: data.source }]);
+      const aiText = data.text ?? "No answer.";
+      setMsgs((m) => [...m, { role: "ai", text: aiText, source: data.source }]);
+      // Persist AI response
+      fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ role: "ai", content: aiText, district: selected.name }),
+      }).catch(() => {});
     } catch {
       setMsgs((m) => [...m, { role: "ai", text: "Could not reach K2. Try again." }]);
     } finally {
