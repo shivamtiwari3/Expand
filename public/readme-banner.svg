@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-label="Xpand  UAE service gap intelligence">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141312"/>
+      <stop offset="100%" stop-color="#282524"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5b5f66"/>
+      <stop offset="25%" stop-color="#ced7e3"/>
+      <stop offset="50%" stop-color="#faf6ee"/>
+      <stop offset="75%" stop-color="#b8c3d4"/>
+      <stop offset="100%" stop-color="#6b7280"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="100%;200%;100%" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="960" height="320" fill="url(#bg)"/>
+  <!-- grid -->
+  <g opacity="0.12" stroke="#ced7e3" stroke-width="0.5">
+    <line x1="0" y1="80" x2="960" y2="80"/>
+    <line x1="0" y1="160" x2="960" y2="160"/>
+    <line x1="0" y1="240" x2="960" y2="240"/>
+    <line x1="160" y1="0" x2="160" y2="320"/>
+    <line x1="320" y1="0" x2="320" y2="320"/>
+    <line x1="480" y1="0" x2="480" y2="320"/>
+    <line x1="640" y1="0" x2="640" y2="320"/>
+    <line x1="800" y1="0" x2="800" y2="320"/>
+  </g>
+  <!-- animated gap dots -->
+  <circle cx="220" cy="140" r="14" fill="#d9694e" opacity="0.9">
+    <animate attributeName="r" values="12;16;12" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="420" cy="190" r="11" fill="#d8b163" opacity="0.85">
+    <animate attributeName="cy" values="190;178;190" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="580" cy="120" r="10" fill="#7fa89c" opacity="0.8"/>
+  <circle cx="720" cy="200" r="13" fill="#d9694e" opacity="0.75">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- diamond rec pin -->
+  <polygon points="640,95 655,110 640,125 625,110" fill="#1e1c1b" stroke="#ced7e3" stroke-width="2" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" from="0 640 110" to="360 640 110" dur="20s" repeatCount="indefinite"/>
+  </polygon>
+  <!-- title -->
+  <text x="48" y="72" fill="url(#sheen)" font-family="Georgia, serif" font-size="42" font-weight="600">Xpand</text>
+  <text x="48" y="108" fill="#b5ae9f" font-family="ui-monospace, monospace" font-size="13" letter-spacing="3">UAE AI PROPTECH · DECISION INTELLIGENCE</text>
+  <text x="48" y="260" fill="#faf6ee" font-family="Georgia, serif" font-size="22">See what every area is missing  before it's missed.</text>
+  <text x="48" y="290" fill="#7fa89c" font-family="ui-monospace, monospace" font-size="11" letter-spacing="2">39 DISTRICTS · 7 EMIRATES · K2 THINK</text>
+</svg>

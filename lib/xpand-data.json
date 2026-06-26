@@ -1,0 +1,3822 @@
+{
+  "meta": {
+    "districts": 39,
+    "parcels": 600,
+    "investors": 200,
+    "transactions": 5000,
+    "communities": 90,
+    "amenities": 3155,
+    "emirates": 7
+  },
+  "categoryLabel": {
+    "education": "schools & nurseries",
+    "healthcare": "clinics & pharmacies",
+    "retail": "shops & daily retail",
+    "community": "parks & community space",
+    "mobility": "transit & stops",
+    "services": "everyday services"
+  },
+  "sectorUse": {
+    "residential": "residential",
+    "commercial": "commercial",
+    "mixed_use": "mixed_use",
+    "industrial": "industrial",
+    "logistics": "industrial",
+    "hospitality": "hospitality",
+    "community": "community"
+  },
+  "districts": [
+    {
+      "name": "Saadiyat Island",
+      "areaType": "island",
+      "profile": "premium",
+      "baseSale": 19000,
+      "yield": 6,
+      "infra": 92,
+      "lat": 24.545,
+      "lng": 54.431,
+      "x": 0.221,
+      "y": 0.02,
+      "established": 2009,
+      "population": 313795,
+      "vacantTotal": 9,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 61,
+          "avgValueM": 45.6
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 79,
+          "avgValueM": 121.8
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 54.5,
+          "avgValueM": 87.1
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 68,
+          "avgValueM": 65.8
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 77.5,
+          "avgValueM": 80.3
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 46.3,
+      "mobility": 85.3,
+      "experience": 92,
+      "momentum": 16.2,
+      "amenities": 68,
+      "amenityByCat": {
+        "education": 8,
+        "healthcare": 2,
+        "retail": 5,
+        "community": 28,
+        "mobility": 23,
+        "services": 2
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 28,
+          "shortfall": 4.4
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 2,
+          "shortfall": 3.8
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 2,
+          "shortfall": 3.8
+        }
+      ],
+      "investorsBySector": {
+        "community": 2,
+        "residential": 2,
+        "hospitality": 1,
+        "logistics": 2,
+        "mixed_use": 1
+      },
+      "investorFit": 75.9,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Maryah Island",
+      "areaType": "island",
+      "profile": "premium",
+      "baseSale": 22000,
+      "yield": 6,
+      "infra": 96,
+      "lat": 24.5,
+      "lng": 54.39,
+      "x": 0.1295,
+      "y": 0.2,
+      "established": 2014,
+      "population": 445889,
+      "vacantTotal": 4,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 75,
+          "avgValueM": 120.9
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 45,
+          "avgValueM": 123.3
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 92,
+          "avgValueM": 42.7
+        },
+        "hospitality": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 50.1,
+      "mobility": 88.7,
+      "experience": 90.9,
+      "momentum": 10.7,
+      "amenities": 95,
+      "amenityByCat": {
+        "education": 1,
+        "healthcare": 10,
+        "retail": 24,
+        "community": 19,
+        "mobility": 36,
+        "services": 5
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 19,
+          "shortfall": 9
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 5,
+          "shortfall": 3.4
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 1,
+          "shortfall": 3.3
+        }
+      ],
+      "investorsBySector": {
+        "residential": 5,
+        "community": 1,
+        "commercial": 2,
+        "mixed_use": 1,
+        "industrial": 1,
+        "logistics": 1
+      },
+      "investorFit": 81.7,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Yas Island",
+      "areaType": "island",
+      "profile": "leisure",
+      "baseSale": 14000,
+      "yield": 7,
+      "infra": 88,
+      "lat": 24.49,
+      "lng": 54.603,
+      "x": 0.6049,
+      "y": 0.24,
+      "established": 2009,
+      "population": 321425,
+      "vacantTotal": 8,
+      "vacantByUse": {
+        "residential": {
+          "count": 1,
+          "avgPotential": 55,
+          "avgValueM": 36.7
+        },
+        "mixed_use": {
+          "count": 5,
+          "avgPotential": 80.4,
+          "avgValueM": 87.3
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 78,
+          "avgValueM": 60.5
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 72,
+          "avgValueM": 49.9
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 60,
+      "mobility": 83.5,
+      "experience": 86.2,
+      "momentum": 30.4,
+      "amenities": 57,
+      "amenityByCat": {
+        "education": 2,
+        "healthcare": 5,
+        "retail": 4,
+        "community": 23,
+        "mobility": 16,
+        "services": 7
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 23,
+          "shortfall": 6.1
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 3.7
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 2,
+          "shortfall": 2.9
+        }
+      ],
+      "investorsBySector": {
+        "logistics": 1,
+        "industrial": 2,
+        "commercial": 2,
+        "residential": 3
+      },
+      "investorFit": 80.9,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Reem Island",
+      "areaType": "island",
+      "profile": "mid_high",
+      "baseSale": 13000,
+      "yield": 7.5,
+      "infra": 86,
+      "lat": 24.493,
+      "lng": 54.406,
+      "x": 0.1652,
+      "y": 0.228,
+      "established": 2010,
+      "population": 287319,
+      "vacantTotal": 7,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 71.7,
+          "avgValueM": 87.5
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 72,
+          "avgValueM": 57.2
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 68,
+          "avgValueM": 48.2
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 43,
+          "avgValueM": 76.4
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 91,
+          "avgValueM": 76.8
+        }
+      },
+      "demand": 58.3,
+      "mobility": 80,
+      "experience": 87.3,
+      "momentum": 26.6,
+      "amenities": 89,
+      "amenityByCat": {
+        "education": 5,
+        "healthcare": 4,
+        "retail": 13,
+        "community": 40,
+        "mobility": 24,
+        "services": 3
+      },
+      "gaps": [
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 3,
+          "shortfall": 3.4
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 4,
+          "shortfall": 3
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 5,
+          "shortfall": 1.8
+        }
+      ],
+      "investorsBySector": {
+        "residential": 4,
+        "community": 2,
+        "hospitality": 1,
+        "mixed_use": 1,
+        "logistics": 1,
+        "commercial": 2,
+        "industrial": 1
+      },
+      "investorFit": 81.8,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Raha Beach",
+      "areaType": "waterfront",
+      "profile": "high",
+      "baseSale": 14500,
+      "yield": 7,
+      "infra": 87,
+      "lat": 24.46,
+      "lng": 54.61,
+      "x": 0.6205,
+      "y": 0.36,
+      "established": 2011,
+      "population": 257039,
+      "vacantTotal": 11,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 74.4,
+          "avgValueM": 107.9
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 95,
+          "avgValueM": 47.8
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 67,
+          "avgValueM": 80.7
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 85,
+          "avgValueM": 43
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 78.7,
+          "avgValueM": 51.4
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 55.6,
+      "mobility": 80.2,
+      "experience": 90,
+      "momentum": 26.3,
+      "amenities": 27,
+      "amenityByCat": {
+        "education": 0,
+        "healthcare": 5,
+        "retail": 5,
+        "community": 7,
+        "mobility": 10,
+        "services": 0
+      },
+      "gaps": [
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 0,
+          "shortfall": 4.5
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 0,
+          "shortfall": 3.5
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 7,
+          "shortfall": 10.6
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 4,
+        "mixed_use": 2,
+        "residential": 3,
+        "community": 1,
+        "logistics": 1
+      },
+      "investorFit": 79,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Bateen",
+      "areaType": "waterfront",
+      "profile": "premium",
+      "baseSale": 16000,
+      "yield": 6,
+      "infra": 90,
+      "lat": 24.452,
+      "lng": 54.332,
+      "x": 0,
+      "y": 0.392,
+      "established": 1990,
+      "population": 378835,
+      "vacantTotal": 7,
+      "vacantByUse": {
+        "residential": {
+          "count": 1,
+          "avgPotential": 88,
+          "avgValueM": 107.2
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 75,
+          "avgValueM": 93.2
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 78.5,
+          "avgValueM": 61.7
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 83,
+          "avgValueM": 186.7
+        }
+      },
+      "demand": 52.6,
+      "mobility": 85,
+      "experience": 90.7,
+      "momentum": 16.8,
+      "amenities": 78,
+      "amenityByCat": {
+        "education": 1,
+        "healthcare": 3,
+        "retail": 2,
+        "community": 48,
+        "mobility": 20,
+        "services": 4
+      },
+      "gaps": [
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 2,
+          "shortfall": 4.4
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 3,
+          "shortfall": 3.6
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 4,
+          "shortfall": 3.4
+        }
+      ],
+      "investorsBySector": {
+        "logistics": 2,
+        "commercial": 2,
+        "hospitality": 1,
+        "residential": 2,
+        "industrial": 1
+      },
+      "investorFit": 74.6,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Corniche",
+      "areaType": "central",
+      "profile": "established",
+      "baseSale": 15000,
+      "yield": 6.5,
+      "infra": 93,
+      "lat": 24.472,
+      "lng": 54.338,
+      "x": 0.0134,
+      "y": 0.312,
+      "established": 1980,
+      "population": 509261,
+      "vacantTotal": 10,
+      "vacantByUse": {
+        "residential": {
+          "count": 4,
+          "avgPotential": 64.8,
+          "avgValueM": 67.5
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 78,
+          "avgValueM": 51.4
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 64,
+          "avgValueM": 116.4
+        },
+        "commercial": {
+          "count": 3,
+          "avgPotential": 75.3,
+          "avgValueM": 47.4
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 70,
+          "avgValueM": 78.4
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 55,
+      "mobility": 85.7,
+      "experience": 90,
+      "momentum": 21.8,
+      "amenities": 133,
+      "amenityByCat": {
+        "education": 1,
+        "healthcare": 21,
+        "retail": 15,
+        "community": 43,
+        "mobility": 34,
+        "services": 19
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 43,
+          "shortfall": 4.9
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 1,
+          "shortfall": 3.3
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 15,
+          "shortfall": 2
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 4,
+        "hospitality": 2,
+        "logistics": 1,
+        "commercial": 4
+      },
+      "investorFit": 80.8,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Khalidiyah",
+      "areaType": "central",
+      "profile": "established",
+      "baseSale": 13500,
+      "yield": 6.8,
+      "infra": 89,
+      "lat": 24.466,
+      "lng": 54.349,
+      "x": 0.0379,
+      "y": 0.336,
+      "established": 1985,
+      "population": 487073,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 52.5,
+          "avgValueM": 101.1
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 67.3,
+          "avgValueM": 91.8
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 71,
+          "avgValueM": 79.4
+        },
+        "commercial": {
+          "count": 4,
+          "avgPotential": 66,
+          "avgValueM": 38.9
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 85.5,
+          "avgValueM": 96.5
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 73,
+          "avgValueM": 187.5
+        }
+      },
+      "demand": 56.1,
+      "mobility": 82,
+      "experience": 91.3,
+      "momentum": 17.3,
+      "amenities": 275,
+      "amenityByCat": {
+        "education": 23,
+        "healthcare": 60,
+        "retail": 21,
+        "community": 81,
+        "mobility": 63,
+        "services": 27
+      },
+      "gaps": [
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 21,
+          "shortfall": 0.6
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 2,
+        "logistics": 2,
+        "community": 1,
+        "industrial": 3,
+        "hospitality": 2,
+        "commercial": 4,
+        "residential": 1
+      },
+      "investorFit": 82.9,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Zahiyah",
+      "areaType": "central",
+      "profile": "mid",
+      "baseSale": 11000,
+      "yield": 7.5,
+      "infra": 80,
+      "lat": 24.49,
+      "lng": 54.372,
+      "x": 0.0893,
+      "y": 0.24,
+      "established": 1982,
+      "population": 308342,
+      "vacantTotal": 7,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 83,
+          "avgValueM": 32.7
+        },
+        "mixed_use": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 67.5,
+          "avgValueM": 33.7
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 46,
+          "avgValueM": 29.7
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 60,
+          "avgValueM": 43.4
+        }
+      },
+      "demand": 68.5,
+      "mobility": 69,
+      "experience": 80.8,
+      "momentum": 22,
+      "amenities": 679,
+      "amenityByCat": {
+        "education": 28,
+        "healthcare": 184,
+        "retail": 119,
+        "community": 112,
+        "mobility": 138,
+        "services": 98
+      },
+      "gaps": [],
+      "investorsBySector": {
+        "residential": 4,
+        "hospitality": 2,
+        "mixed_use": 2,
+        "commercial": 1,
+        "logistics": 2
+      },
+      "investorFit": 83.4,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Danet Abu Dhabi",
+      "areaType": "central",
+      "profile": "mid_high",
+      "baseSale": 12000,
+      "yield": 7,
+      "infra": 82,
+      "lat": 24.431,
+      "lng": 54.39,
+      "x": 0.1295,
+      "y": 0.476,
+      "established": 2008,
+      "population": 562345,
+      "vacantTotal": 15,
+      "vacantByUse": {
+        "residential": {
+          "count": 4,
+          "avgPotential": 54,
+          "avgValueM": 87.2
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 68.5,
+          "avgValueM": 71
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 3,
+          "avgPotential": 79.7,
+          "avgValueM": 19.5
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 64,
+          "avgValueM": 47.4
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 66.8,
+          "avgValueM": 110.6
+        }
+      },
+      "demand": 61.6,
+      "mobility": 75.6,
+      "experience": 85.9,
+      "momentum": 17.3,
+      "amenities": 443,
+      "amenityByCat": {
+        "education": 50,
+        "healthcare": 64,
+        "retail": 25,
+        "community": 151,
+        "mobility": 119,
+        "services": 34
+      },
+      "gaps": [
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 25,
+          "shortfall": 0.5
+        }
+      ],
+      "investorsBySector": {
+        "logistics": 1,
+        "residential": 2,
+        "industrial": 2,
+        "mixed_use": 4,
+        "hospitality": 1,
+        "community": 1
+      },
+      "investorFit": 76.9,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Masdar City",
+      "areaType": "mainland",
+      "profile": "innovation",
+      "baseSale": 12000,
+      "yield": 7,
+      "infra": 90,
+      "lat": 24.43,
+      "lng": 54.614,
+      "x": 0.6295,
+      "y": 0.48,
+      "established": 2010,
+      "population": 479286,
+      "vacantTotal": 9,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 71.7,
+          "avgValueM": 71.2
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 63.5,
+          "avgValueM": 83.1
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 74,
+          "avgValueM": 14.9
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 69,
+          "avgValueM": 53
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 42,
+          "avgValueM": 38.3
+        }
+      },
+      "demand": 41,
+      "mobility": 85.3,
+      "experience": 92,
+      "momentum": 23.1,
+      "amenities": 71,
+      "amenityByCat": {
+        "education": 11,
+        "healthcare": 7,
+        "retail": 15,
+        "community": 19,
+        "mobility": 11,
+        "services": 8
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 19,
+          "shortfall": 9.3
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 11,
+          "shortfall": 4.9
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 7,
+          "shortfall": 3
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 5,
+        "hospitality": 4,
+        "residential": 3,
+        "community": 2,
+        "mixed_use": 1
+      },
+      "investorFit": 80.1,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Khalifa City",
+      "areaType": "mainland",
+      "profile": "mid",
+      "baseSale": 9500,
+      "yield": 7.5,
+      "infra": 72,
+      "lat": 24.42,
+      "lng": 54.58,
+      "x": 0.5536,
+      "y": 0.52,
+      "established": 2002,
+      "population": 233922,
+      "vacantTotal": 11,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 73.7,
+          "avgValueM": 64.8
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 79.5,
+          "avgValueM": 24.1
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 76,
+          "avgValueM": 18.8
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 74,
+          "avgValueM": 23.4
+        },
+        "industrial": {
+          "count": 3,
+          "avgPotential": 54,
+          "avgValueM": 91.1
+        }
+      },
+      "demand": 72.5,
+      "mobility": 65.5,
+      "experience": 79,
+      "momentum": 12.1,
+      "amenities": 94,
+      "amenityByCat": {
+        "education": 23,
+        "healthcare": 9,
+        "retail": 15,
+        "community": 36,
+        "mobility": 4,
+        "services": 7
+      },
+      "gaps": [
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 4,
+          "shortfall": 5.5
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 7,
+          "shortfall": 1.5
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 9,
+          "shortfall": 0.6
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 2,
+        "hospitality": 1,
+        "residential": 4,
+        "mixed_use": 4
+      },
+      "investorFit": 77,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Mohammed Bin Zayed City",
+      "areaType": "mainland",
+      "profile": "mid_affordable",
+      "baseSale": 8500,
+      "yield": 8,
+      "infra": 68,
+      "lat": 24.32,
+      "lng": 54.54,
+      "x": 0.4643,
+      "y": 0.92,
+      "established": 2001,
+      "population": 222101,
+      "vacantTotal": 15,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 82,
+          "avgValueM": 41.6
+        },
+        "mixed_use": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 67,
+          "avgValueM": 24.7
+        },
+        "commercial": {
+          "count": 3,
+          "avgPotential": 82.3,
+          "avgValueM": 21.9
+        },
+        "hospitality": {
+          "count": 4,
+          "avgPotential": 70.5,
+          "avgValueM": 50.9
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 83,
+          "avgValueM": 69.8
+        }
+      },
+      "demand": 78.8,
+      "mobility": 60,
+      "experience": 68.5,
+      "momentum": 18.7,
+      "amenities": 102,
+      "amenityByCat": {
+        "education": 10,
+        "healthcare": 29,
+        "retail": 25,
+        "community": 16,
+        "mobility": 6,
+        "services": 16
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 16,
+          "shortfall": 6.1
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 6,
+          "shortfall": 4.5
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 1,
+        "mixed_use": 4,
+        "residential": 2,
+        "industrial": 1
+      },
+      "investorFit": 76.6,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Zayed City",
+      "areaType": "mainland",
+      "profile": "emerging",
+      "baseSale": 9000,
+      "yield": 7.5,
+      "infra": 70,
+      "lat": 24.33,
+      "lng": 54.55,
+      "x": 0.4866,
+      "y": 0.88,
+      "established": 2018,
+      "population": 76755,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 4,
+          "avgPotential": 72.5,
+          "avgValueM": 42.1
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 77,
+          "avgValueM": 28.9
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 66,
+          "avgValueM": 41.1
+        },
+        "commercial": {
+          "count": 5,
+          "avgPotential": 61.6,
+          "avgValueM": 30.5
+        },
+        "hospitality": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 65.5,
+          "avgValueM": 143.4
+        }
+      },
+      "demand": 76.5,
+      "mobility": 67,
+      "experience": 71,
+      "momentum": 21.5,
+      "amenities": 158,
+      "amenityByCat": {
+        "education": 27,
+        "healthcare": 23,
+        "retail": 25,
+        "community": 52,
+        "mobility": 13,
+        "services": 18
+      },
+      "gaps": [],
+      "investorsBySector": {
+        "industrial": 2,
+        "mixed_use": 2,
+        "logistics": 1,
+        "residential": 4,
+        "commercial": 1
+      },
+      "investorFit": 78,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Maqta",
+      "areaType": "mainland",
+      "profile": "mid",
+      "baseSale": 9000,
+      "yield": 7.5,
+      "infra": 74,
+      "lat": 24.4,
+      "lng": 54.51,
+      "x": 0.3973,
+      "y": 0.6,
+      "established": 2004,
+      "population": 207187,
+      "vacantTotal": 19,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 74.8,
+          "avgValueM": 50.6
+        },
+        "mixed_use": {
+          "count": 4,
+          "avgPotential": 78.8,
+          "avgValueM": 47.3
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 57,
+          "avgValueM": 52.5
+        },
+        "commercial": {
+          "count": 3,
+          "avgPotential": 68,
+          "avgValueM": 24.2
+        },
+        "hospitality": {
+          "count": 4,
+          "avgPotential": 73.5,
+          "avgValueM": 45.5
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 62.5,
+          "avgValueM": 89.7
+        }
+      },
+      "demand": 67,
+      "mobility": 68,
+      "experience": 87,
+      "momentum": 11.2,
+      "amenities": 252,
+      "amenityByCat": {
+        "education": 12,
+        "healthcare": 42,
+        "retail": 23,
+        "community": 106,
+        "mobility": 46,
+        "services": 23
+      },
+      "gaps": [],
+      "investorsBySector": {
+        "hospitality": 1,
+        "residential": 2,
+        "commercial": 1,
+        "industrial": 1
+      },
+      "investorFit": 79.6,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Shamkha",
+      "areaType": "mainland",
+      "profile": "affordable",
+      "baseSale": 7500,
+      "yield": 8.5,
+      "infra": 63,
+      "lat": 24.34,
+      "lng": 54.72,
+      "x": 0.8661,
+      "y": 0.84,
+      "established": 2012,
+      "population": 85710,
+      "vacantTotal": 9,
+      "vacantByUse": {
+        "residential": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 80.7,
+          "avgValueM": 42.5
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 69,
+          "avgValueM": 43
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 30,
+          "avgValueM": 15.7
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 57,
+          "avgValueM": 48.4
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 87,
+          "avgValueM": 99.2
+        }
+      },
+      "demand": 84,
+      "mobility": 54,
+      "experience": 71,
+      "momentum": 29.6,
+      "amenities": 120,
+      "amenityByCat": {
+        "education": 22,
+        "healthcare": 12,
+        "retail": 20,
+        "community": 52,
+        "mobility": 6,
+        "services": 8
+      },
+      "gaps": [
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 6,
+          "shortfall": 0.2
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 2,
+        "mixed_use": 1,
+        "hospitality": 3
+      },
+      "investorFit": 80,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Reef",
+      "areaType": "mainland",
+      "profile": "affordable",
+      "baseSale": 7000,
+      "yield": 8.5,
+      "infra": 65,
+      "lat": 24.43,
+      "lng": 54.7,
+      "x": 0.8214,
+      "y": 0.48,
+      "established": 2009,
+      "population": 24101,
+      "vacantTotal": 8,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 78,
+          "avgValueM": 34.3
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 71.5,
+          "avgValueM": 29.2
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "hospitality": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 83,
+          "avgValueM": 123.1
+        }
+      },
+      "demand": 72,
+      "mobility": 57,
+      "experience": 78,
+      "momentum": 14.4,
+      "amenities": 130,
+      "amenityByCat": {
+        "education": 12,
+        "healthcare": 5,
+        "retail": 25,
+        "community": 71,
+        "mobility": 10,
+        "services": 7
+      },
+      "gaps": [],
+      "investorsBySector": {
+        "industrial": 3,
+        "hospitality": 3,
+        "residential": 3,
+        "logistics": 2,
+        "commercial": 1
+      },
+      "investorFit": 76.1,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Ghadeer",
+      "areaType": "border",
+      "profile": "affordable",
+      "baseSale": 6500,
+      "yield": 9,
+      "infra": 60,
+      "lat": 24.3,
+      "lng": 54.78,
+      "x": 1,
+      "y": 1,
+      "established": 2011,
+      "population": 247087,
+      "vacantTotal": 10,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 57.3,
+          "avgValueM": 35.4
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 62.5,
+          "avgValueM": 41.5
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 83,
+          "avgValueM": 31.5
+        },
+        "commercial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 79.3,
+          "avgValueM": 26.2
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 78,
+      "mobility": 56.3,
+      "experience": 74.7,
+      "momentum": 11.7,
+      "amenities": 26,
+      "amenityByCat": {
+        "education": 0,
+        "healthcare": 1,
+        "retail": 14,
+        "community": 10,
+        "mobility": 1,
+        "services": 0
+      },
+      "gaps": [
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 0,
+          "shortfall": 4.5
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 0,
+          "shortfall": 3.5
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 10,
+          "shortfall": 9.2
+        }
+      ],
+      "investorsBySector": {
+        "residential": 5,
+        "industrial": 3,
+        "logistics": 1,
+        "hospitality": 1,
+        "community": 1,
+        "mixed_use": 1
+      },
+      "investorFit": 78.1,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Al Bahia",
+      "areaType": "coastal",
+      "profile": "mid",
+      "baseSale": 8000,
+      "yield": 8,
+      "infra": 67,
+      "lat": 24.55,
+      "lng": 54.66,
+      "x": 0.7321,
+      "y": 0,
+      "established": 2006,
+      "population": 210334,
+      "vacantTotal": 10,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 74,
+          "avgValueM": 52
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 80.3,
+          "avgValueM": 50.1
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 86,
+          "avgValueM": 59.9
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 72.8,
+          "avgValueM": 79.7
+        }
+      },
+      "demand": 63,
+      "mobility": 61.5,
+      "experience": 88.2,
+      "momentum": 8.2,
+      "amenities": 100,
+      "amenityByCat": {
+        "education": 14,
+        "healthcare": 10,
+        "retail": 9,
+        "community": 38,
+        "mobility": 18,
+        "services": 11
+      },
+      "gaps": [
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 9,
+          "shortfall": 0.7
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 2,
+        "hospitality": 2,
+        "logistics": 1,
+        "residential": 2
+      },
+      "investorFit": 79,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Mussafah",
+      "areaType": "mainland",
+      "profile": "industrial",
+      "baseSale": 6000,
+      "yield": 8.5,
+      "infra": 66,
+      "lat": 24.35,
+      "lng": 54.5,
+      "x": 0.375,
+      "y": 0.8,
+      "established": 1995,
+      "population": 283078,
+      "vacantTotal": 8,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 70.3,
+          "avgValueM": 34.3
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 76,
+          "avgValueM": 51.7
+        },
+        "community": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 70.5,
+          "avgValueM": 13.6
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 62,
+          "avgValueM": 31.9
+        },
+        "industrial": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        }
+      },
+      "demand": 82.2,
+      "mobility": 63.8,
+      "experience": 65.4,
+      "momentum": 15.5,
+      "amenities": 158,
+      "amenityByCat": {
+        "education": 1,
+        "healthcare": 31,
+        "retail": 54,
+        "community": 33,
+        "mobility": 20,
+        "services": 19
+      },
+      "gaps": [
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 1,
+          "shortfall": 3.2
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 33,
+          "shortfall": 1.6
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 20,
+          "shortfall": 0.1
+        }
+      ],
+      "investorsBySector": {
+        "hospitality": 3,
+        "commercial": 1,
+        "community": 1,
+        "mixed_use": 3
+      },
+      "investorFit": 81.8,
+      "emirate": "Abu Dhabi"
+    },
+    {
+      "name": "Downtown Dubai",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "central",
+      "profile": "premium",
+      "baseSale": 13695,
+      "yield": 7.5,
+      "infra": 75,
+      "lat": 25.197,
+      "lng": 55.274,
+      "x": 0.49,
+      "y": 0.3862,
+      "established": 2004,
+      "population": 324407,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 81.9,
+          "avgValueM": 64.1
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 63.6,
+          "avgValueM": 85.7
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 75.7,
+          "avgValueM": 43.9
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 74.4,
+          "avgValueM": 88
+        },
+        "hospitality": {
+          "count": 5,
+          "avgPotential": 52.2,
+          "avgValueM": 62.2
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 67.4,
+          "avgValueM": 67.8
+        }
+      },
+      "demand": 65,
+      "mobility": 38.9,
+      "experience": 76.2,
+      "momentum": 32.8,
+      "amenities": 82,
+      "amenityByCat": {
+        "education": 5,
+        "healthcare": 10,
+        "retail": 13,
+        "community": 29,
+        "mobility": 19,
+        "services": 6
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 29,
+          "shortfall": 5
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 6,
+          "shortfall": 3.4
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 5,
+          "shortfall": 3
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 10,
+          "shortfall": 1.7
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 19,
+          "shortfall": 1.5
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 13,
+          "shortfall": 1.4
+        }
+      ],
+      "investorsBySector": {
+        "industrial": 3,
+        "mixed_use": 4
+      },
+      "investorFit": 84.9
+    },
+    {
+      "name": "Dubai Marina",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "waterfront",
+      "profile": "leisure",
+      "baseSale": 15736,
+      "yield": 8.3,
+      "infra": 59,
+      "lat": 25.08,
+      "lng": 55.14,
+      "x": 0.4385,
+      "y": 0.4462,
+      "established": 2012,
+      "population": 231046,
+      "vacantTotal": 13,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 57.2,
+          "avgValueM": 67.9
+        },
+        "mixed_use": {
+          "count": 4,
+          "avgPotential": 74.2,
+          "avgValueM": 65.8
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 66.1,
+          "avgValueM": 19.6
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 78.1,
+          "avgValueM": 35.9
+        },
+        "hospitality": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 53,
+          "avgValueM": 21.5
+        }
+      },
+      "demand": 76,
+      "mobility": 57.8,
+      "experience": 74.8,
+      "momentum": 26.7,
+      "amenities": 66,
+      "amenityByCat": {
+        "education": 9,
+        "healthcare": 9,
+        "retail": 10,
+        "community": 20,
+        "mobility": 7,
+        "services": 11
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 20,
+          "shortfall": 5.3
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 7,
+          "shortfall": 4.3
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 10,
+          "shortfall": 1.1
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 9,
+          "shortfall": 0.9
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 9,
+          "shortfall": 0.6
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 11,
+          "shortfall": 0.5
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 1,
+        "logistics": 2,
+        "mixed_use": 1
+      },
+      "investorFit": 81.6
+    },
+    {
+      "name": "Business Bay",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "central",
+      "profile": "business",
+      "baseSale": 12183,
+      "yield": 7.7,
+      "infra": 87,
+      "lat": 25.187,
+      "lng": 55.263,
+      "x": 0.4858,
+      "y": 0.3913,
+      "established": 2014,
+      "population": 304213,
+      "vacantTotal": 12,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 76.5,
+          "avgValueM": 84.1
+        },
+        "mixed_use": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "community": {
+          "count": 3,
+          "avgPotential": 84.2,
+          "avgValueM": 35.3
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 50.1,
+          "avgValueM": 79.6
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 74,
+          "avgValueM": 30.2
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 59.2,
+          "avgValueM": 63.3
+        }
+      },
+      "demand": 52,
+      "mobility": 38.9,
+      "experience": 46.5,
+      "momentum": 6.5,
+      "amenities": 72,
+      "amenityByCat": {
+        "education": 5,
+        "healthcare": 10,
+        "retail": 9,
+        "community": 30,
+        "mobility": 16,
+        "services": 2
+      },
+      "gaps": [
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 2,
+          "shortfall": 4.6
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 30,
+          "shortfall": 4.1
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 5,
+          "shortfall": 2.9
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 9,
+          "shortfall": 2.4
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 16,
+          "shortfall": 2.1
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 10,
+          "shortfall": 1.5
+        }
+      ],
+      "investorsBySector": {
+        "community": 2,
+        "logistics": 2,
+        "commercial": 2,
+        "hospitality": 2
+      },
+      "investorFit": 64.3
+    },
+    {
+      "name": "Jumeirah Village Circle",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "mainland",
+      "profile": "affordable",
+      "baseSale": 20265,
+      "yield": 8.3,
+      "infra": 71,
+      "lat": 25.06,
+      "lng": 55.207,
+      "x": 0.4642,
+      "y": 0.4564,
+      "established": 2014,
+      "population": 98173,
+      "vacantTotal": 15,
+      "vacantByUse": {
+        "residential": {
+          "count": 1,
+          "avgPotential": 58,
+          "avgValueM": 26.9
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 82.6,
+          "avgValueM": 40.9
+        },
+        "community": {
+          "count": 3,
+          "avgPotential": 63.6,
+          "avgValueM": 39.7
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 73.7,
+          "avgValueM": 76.8
+        },
+        "hospitality": {
+          "count": 5,
+          "avgPotential": 57.8,
+          "avgValueM": 60.5
+        },
+        "industrial": {
+          "count": 3,
+          "avgPotential": 68.2,
+          "avgValueM": 59.9
+        }
+      },
+      "demand": 58,
+      "mobility": 68.4,
+      "experience": 62.4,
+      "momentum": 33.5,
+      "amenities": 12,
+      "amenityByCat": {
+        "education": 2,
+        "healthcare": 1,
+        "retail": 4,
+        "community": 2,
+        "mobility": 2,
+        "services": 1
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 2,
+          "shortfall": 11.9
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 2,
+          "shortfall": 5.3
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 1,
+          "shortfall": 4.2
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 1,
+          "shortfall": 3.7
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 2,
+          "shortfall": 2.5
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 1.3
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 2,
+        "logistics": 1,
+        "hospitality": 1,
+        "commercial": 1
+      },
+      "investorFit": 82.7
+    },
+    {
+      "name": "Deira",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "central",
+      "profile": "heritage",
+      "baseSale": 15039,
+      "yield": 7.8,
+      "infra": 56,
+      "lat": 25.271,
+      "lng": 55.317,
+      "x": 0.5065,
+      "y": 0.3482,
+      "established": 2014,
+      "population": 161976,
+      "vacantTotal": 16,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 82.3,
+          "avgValueM": 29
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 67.5,
+          "avgValueM": 47.5
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 67.5,
+          "avgValueM": 49
+        },
+        "commercial": {
+          "count": 3,
+          "avgPotential": 57.4,
+          "avgValueM": 56.1
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 81.7,
+          "avgValueM": 18.7
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 79.2,
+          "avgValueM": 54.9
+        }
+      },
+      "demand": 58,
+      "mobility": 79.5,
+      "experience": 51.5,
+      "momentum": 6.6,
+      "amenities": 41,
+      "amenityByCat": {
+        "education": 5,
+        "healthcare": 5,
+        "retail": 3,
+        "community": 17,
+        "mobility": 6,
+        "services": 5
+      },
+      "gaps": [
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 6,
+          "shortfall": 3.6
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 3,
+          "shortfall": 3.5
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 17,
+          "shortfall": 3.4
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 5,
+          "shortfall": 2.1
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 5,
+          "shortfall": 1.7
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 5,
+          "shortfall": 1.4
+        }
+      ],
+      "investorsBySector": {
+        "residential": 5,
+        "commercial": 3,
+        "hospitality": 2
+      },
+      "investorFit": 75.8
+    },
+    {
+      "name": "Dubai Silicon Oasis",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "mainland",
+      "profile": "tech",
+      "baseSale": 17066,
+      "yield": 8.8,
+      "infra": 61,
+      "lat": 25.121,
+      "lng": 55.378,
+      "x": 0.53,
+      "y": 0.4251,
+      "established": 2007,
+      "population": 224848,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "mixed_use": {
+          "count": 4,
+          "avgPotential": 82.4,
+          "avgValueM": 64.8
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 65.2,
+          "avgValueM": 31
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 62,
+          "avgValueM": 30.3
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 75.3,
+          "avgValueM": 49.1
+        },
+        "industrial": {
+          "count": 5,
+          "avgPotential": 84,
+          "avgValueM": 39.6
+        }
+      },
+      "demand": 49,
+      "mobility": 38.7,
+      "experience": 50.1,
+      "momentum": 24.5,
+      "amenities": 47,
+      "amenityByCat": {
+        "education": 7,
+        "healthcare": 5,
+        "retail": 9,
+        "community": 7,
+        "mobility": 11,
+        "services": 8
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 7,
+          "shortfall": 10.8
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 5,
+          "shortfall": 2.5
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 11,
+          "shortfall": 2.4
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 8,
+          "shortfall": 1.7
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 7,
+          "shortfall": 1.4
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 9,
+          "shortfall": 1.4
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 2,
+        "logistics": 2,
+        "commercial": 5
+      },
+      "investorFit": 66.7
+    },
+    {
+      "name": "Al Barsha",
+      "emirate": "Dubai",
+      "synthetic": true,
+      "areaType": "mainland",
+      "profile": "family",
+      "baseSale": 15219,
+      "yield": 8,
+      "infra": 63,
+      "lat": 25.111,
+      "lng": 55.196,
+      "x": 0.46,
+      "y": 0.4303,
+      "established": 2003,
+      "population": 147932,
+      "vacantTotal": 17,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 77.1,
+          "avgValueM": 41.7
+        },
+        "mixed_use": {
+          "count": 5,
+          "avgPotential": 67.4,
+          "avgValueM": 33
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 50.8,
+          "avgValueM": 71.7
+        },
+        "commercial": {
+          "count": 4,
+          "avgPotential": 58.5,
+          "avgValueM": 38.4
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 73.3,
+          "avgValueM": 87.5
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 53.9,
+          "avgValueM": 56
+        }
+      },
+      "demand": 45,
+      "mobility": 45.4,
+      "experience": 61.9,
+      "momentum": 16.4,
+      "amenities": 38,
+      "amenityByCat": {
+        "education": 4,
+        "healthcare": 6,
+        "retail": 7,
+        "community": 13,
+        "mobility": 5,
+        "services": 3
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 13,
+          "shortfall": 5.1
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 5,
+          "shortfall": 3.9
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 3,
+          "shortfall": 3.2
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 4,
+          "shortfall": 1.8
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 6,
+          "shortfall": 0.7
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 7,
+          "shortfall": 0.7
+        }
+      ],
+      "investorsBySector": {
+        "logistics": 2,
+        "hospitality": 1
+      },
+      "investorFit": 69.2
+    },
+    {
+      "name": "Al Majaz",
+      "emirate": "Sharjah",
+      "synthetic": true,
+      "areaType": "waterfront",
+      "profile": "family",
+      "baseSale": 7104,
+      "yield": 6.9,
+      "infra": 81,
+      "lat": 25.327,
+      "lng": 55.383,
+      "x": 0.5319,
+      "y": 0.3195,
+      "established": 2002,
+      "population": 105057,
+      "vacantTotal": 18,
+      "vacantByUse": {
+        "residential": {
+          "count": 4,
+          "avgPotential": 59.5,
+          "avgValueM": 46.9
+        },
+        "mixed_use": {
+          "count": 4,
+          "avgPotential": 64.8,
+          "avgValueM": 46.7
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 58.7,
+          "avgValueM": 81.8
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 56,
+          "avgValueM": 59.8
+        },
+        "hospitality": {
+          "count": 4,
+          "avgPotential": 83.5,
+          "avgValueM": 35.5
+        },
+        "industrial": {
+          "count": 3,
+          "avgPotential": 71.3,
+          "avgValueM": 39.3
+        }
+      },
+      "demand": 62,
+      "mobility": 52.8,
+      "experience": 59.9,
+      "momentum": 13.5,
+      "amenities": 29,
+      "amenityByCat": {
+        "education": 1,
+        "healthcare": 3,
+        "retail": 4,
+        "community": 13,
+        "mobility": 6,
+        "services": 2
+      },
+      "gaps": [
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 1,
+          "shortfall": 3.6
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 2,
+          "shortfall": 3.3
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 3,
+          "shortfall": 1.9
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 1.6
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 6,
+          "shortfall": 1.6
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 13,
+          "shortfall": 1.5
+        }
+      ],
+      "investorsBySector": {
+        "hospitality": 3,
+        "industrial": 3
+      },
+      "investorFit": 84.4
+    },
+    {
+      "name": "Muwailih",
+      "emirate": "Sharjah",
+      "synthetic": true,
+      "areaType": "mainland",
+      "profile": "affordable",
+      "baseSale": 6778,
+      "yield": 8.6,
+      "infra": 49,
+      "lat": 25.302,
+      "lng": 55.48,
+      "x": 0.5692,
+      "y": 0.3323,
+      "established": 2005,
+      "population": 163456,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 62,
+          "avgValueM": 26.4
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 70.8,
+          "avgValueM": 21.4
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 58.8,
+          "avgValueM": 53.5
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 68.9,
+          "avgValueM": 28.3
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 63,
+          "avgValueM": 38.7
+        },
+        "industrial": {
+          "count": 3,
+          "avgPotential": 84,
+          "avgValueM": 67.1
+        }
+      },
+      "demand": 78,
+      "mobility": 53.7,
+      "experience": 54.1,
+      "momentum": 29.6,
+      "amenities": 27,
+      "amenityByCat": {
+        "education": 2,
+        "healthcare": 2,
+        "retail": 2,
+        "community": 11,
+        "mobility": 7,
+        "services": 3
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 11,
+          "shortfall": 7.2
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 2,
+          "shortfall": 4.2
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 2,
+          "shortfall": 3.5
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 3,
+          "shortfall": 3.4
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 2,
+          "shortfall": 3.3
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 7,
+          "shortfall": 3
+        }
+      ],
+      "investorsBySector": {
+        "logistics": 4,
+        "residential": 5
+      },
+      "investorFit": 79.8
+    },
+    {
+      "name": "Al Khan",
+      "emirate": "Sharjah",
+      "synthetic": true,
+      "areaType": "coastal",
+      "profile": "family",
+      "baseSale": 6743,
+      "yield": 7.3,
+      "infra": 68,
+      "lat": 25.327,
+      "lng": 55.363,
+      "x": 0.5242,
+      "y": 0.3195,
+      "established": 2003,
+      "population": 255546,
+      "vacantTotal": 12,
+      "vacantByUse": {
+        "residential": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "mixed_use": {
+          "count": 4,
+          "avgPotential": 66.8,
+          "avgValueM": 82.4
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 62.8,
+          "avgValueM": 34.8
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 68.6,
+          "avgValueM": 49.7
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 65.5,
+          "avgValueM": 21.3
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 63.3,
+          "avgValueM": 68.2
+        }
+      },
+      "demand": 50,
+      "mobility": 78,
+      "experience": 67.3,
+      "momentum": 8.3,
+      "amenities": 28,
+      "amenityByCat": {
+        "education": 2,
+        "healthcare": 8,
+        "retail": 4,
+        "community": 6,
+        "mobility": 6,
+        "services": 2
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 6,
+          "shortfall": 11.6
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 6,
+          "shortfall": 5
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 2,
+          "shortfall": 4.4
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 3.8
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 2,
+          "shortfall": 3.7
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 8,
+          "shortfall": 1.6
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 2,
+        "hospitality": 2,
+        "logistics": 2
+      },
+      "investorFit": 75.2
+    },
+    {
+      "name": "Al Nuaimiya",
+      "emirate": "Ajman",
+      "synthetic": true,
+      "areaType": "central",
+      "profile": "affordable",
+      "baseSale": 5799,
+      "yield": 8,
+      "infra": 50,
+      "lat": 25.398,
+      "lng": 55.479,
+      "x": 0.5688,
+      "y": 0.2831,
+      "established": 2002,
+      "population": 190994,
+      "vacantTotal": 18,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 79,
+          "avgValueM": 68.4
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 51.5,
+          "avgValueM": 37.2
+        },
+        "community": {
+          "count": 5,
+          "avgPotential": 59.2,
+          "avgValueM": 31.5
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 66.1,
+          "avgValueM": 56.5
+        },
+        "hospitality": {
+          "count": 4,
+          "avgPotential": 63.9,
+          "avgValueM": 57.1
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 84,
+          "avgValueM": 69.8
+        }
+      },
+      "demand": 70,
+      "mobility": 56.9,
+      "experience": 61.8,
+      "momentum": 28.4,
+      "amenities": 34,
+      "amenityByCat": {
+        "education": 6,
+        "healthcare": 2,
+        "retail": 4,
+        "community": 4,
+        "mobility": 10,
+        "services": 8
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 4,
+          "shortfall": 11.8
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 2,
+          "shortfall": 3.7
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 3.3
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 10,
+          "shortfall": 2.1
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 6,
+          "shortfall": 1.4
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 8,
+          "shortfall": 1
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 1,
+        "hospitality": 2
+      },
+      "investorFit": 65.3
+    },
+    {
+      "name": "Ajman Corniche",
+      "emirate": "Ajman",
+      "synthetic": true,
+      "areaType": "waterfront",
+      "profile": "leisure",
+      "baseSale": 4550,
+      "yield": 8.4,
+      "infra": 83,
+      "lat": 25.411,
+      "lng": 55.435,
+      "x": 0.5519,
+      "y": 0.2764,
+      "established": 1997,
+      "population": 231688,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 83.9,
+          "avgValueM": 45.2
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 73.4,
+          "avgValueM": 50.6
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 68.1,
+          "avgValueM": 78.8
+        },
+        "commercial": {
+          "count": 3,
+          "avgPotential": 58.1,
+          "avgValueM": 72
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 68.2,
+          "avgValueM": 26.9
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 56.4,
+          "avgValueM": 55.1
+        }
+      },
+      "demand": 54,
+      "mobility": 75.7,
+      "experience": 56.5,
+      "momentum": 33,
+      "amenities": 70,
+      "amenityByCat": {
+        "education": 8,
+        "healthcare": 5,
+        "retail": 9,
+        "community": 27,
+        "mobility": 14,
+        "services": 7
+      },
+      "gaps": [
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 5,
+          "shortfall": 2.6
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 27,
+          "shortfall": 2.3
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 7,
+          "shortfall": 2.2
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 9,
+          "shortfall": 1.5
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 14,
+          "shortfall": 1.3
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 8,
+          "shortfall": 1
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 1,
+        "community": 2
+      },
+      "investorFit": 63.1
+    },
+    {
+      "name": "UAQ Marina",
+      "emirate": "Umm Al Quwain",
+      "synthetic": true,
+      "areaType": "waterfront",
+      "profile": "leisure",
+      "baseSale": 5048,
+      "yield": 6.8,
+      "infra": 60,
+      "lat": 25.563,
+      "lng": 55.659,
+      "x": 0.6381,
+      "y": 0.1985,
+      "established": 2006,
+      "population": 190364,
+      "vacantTotal": 11,
+      "vacantByUse": {
+        "residential": {
+          "count": 2,
+          "avgPotential": 53.2,
+          "avgValueM": 47.7
+        },
+        "mixed_use": {
+          "count": 5,
+          "avgPotential": 59.9,
+          "avgValueM": 57.3
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 59.1,
+          "avgValueM": 88.2
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 82.6,
+          "avgValueM": 40.8
+        },
+        "hospitality": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 55.4,
+          "avgValueM": 45.2
+        }
+      },
+      "demand": 50,
+      "mobility": 74.4,
+      "experience": 61.8,
+      "momentum": 4.2,
+      "amenities": 31,
+      "amenityByCat": {
+        "education": 4,
+        "healthcare": 4,
+        "retail": 3,
+        "community": 12,
+        "mobility": 4,
+        "services": 4
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 12,
+          "shortfall": 7.6
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 4,
+          "shortfall": 5.2
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 3,
+          "shortfall": 3.8
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 4,
+          "shortfall": 3.1
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 4,
+          "shortfall": 2.7
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 4,
+          "shortfall": 2.4
+        }
+      ],
+      "investorsBySector": {
+        "mixed_use": 1,
+        "logistics": 5
+      },
+      "investorFit": 74.1
+    },
+    {
+      "name": "Al Salamah",
+      "emirate": "Umm Al Quwain",
+      "synthetic": true,
+      "areaType": "mainland",
+      "profile": "affordable",
+      "baseSale": 3892,
+      "yield": 8.1,
+      "infra": 72,
+      "lat": 25.546,
+      "lng": 55.553,
+      "x": 0.5973,
+      "y": 0.2072,
+      "established": 2005,
+      "population": 323542,
+      "vacantTotal": 13,
+      "vacantByUse": {
+        "residential": {
+          "count": 3,
+          "avgPotential": 82.1,
+          "avgValueM": 58.4
+        },
+        "mixed_use": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "community": {
+          "count": 3,
+          "avgPotential": 83,
+          "avgValueM": 34.6
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 60.1,
+          "avgValueM": 87.6
+        },
+        "hospitality": {
+          "count": 1,
+          "avgPotential": 76.4,
+          "avgValueM": 36.5
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 52.2,
+          "avgValueM": 26.6
+        }
+      },
+      "demand": 50,
+      "mobility": 81.9,
+      "experience": 85.3,
+      "momentum": 15.9,
+      "amenities": 68,
+      "amenityByCat": {
+        "education": 8,
+        "healthcare": 6,
+        "retail": 6,
+        "community": 39,
+        "mobility": 5,
+        "services": 4
+      },
+      "gaps": [
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 5,
+          "shortfall": 5.8
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 4,
+          "shortfall": 4
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 6,
+          "shortfall": 3.5
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 6,
+          "shortfall": 2.9
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 8,
+          "shortfall": 2
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 39,
+          "shortfall": 1.9
+        }
+      ],
+      "investorsBySector": {
+        "logistics": 2,
+        "mixed_use": 2
+      },
+      "investorFit": 82.6
+    },
+    {
+      "name": "Al Hamra Village",
+      "emirate": "Ras Al Khaimah",
+      "synthetic": true,
+      "areaType": "waterfront",
+      "profile": "leisure",
+      "baseSale": 6871,
+      "yield": 7.7,
+      "infra": 82,
+      "lat": 25.69,
+      "lng": 55.78,
+      "x": 0.6846,
+      "y": 0.1333,
+      "established": 2008,
+      "population": 272929,
+      "vacantTotal": 10,
+      "vacantByUse": {
+        "residential": {
+          "count": 1,
+          "avgPotential": 62.7,
+          "avgValueM": 71.7
+        },
+        "mixed_use": {
+          "count": 3,
+          "avgPotential": 72.5,
+          "avgValueM": 74.3
+        },
+        "community": {
+          "count": 2,
+          "avgPotential": 82.3,
+          "avgValueM": 46.1
+        },
+        "commercial": {
+          "count": 2,
+          "avgPotential": 79.3,
+          "avgValueM": 21.9
+        },
+        "hospitality": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "industrial": {
+          "count": 2,
+          "avgPotential": 59,
+          "avgValueM": 32.5
+        }
+      },
+      "demand": 85,
+      "mobility": 54.3,
+      "experience": 68.4,
+      "momentum": 7.6,
+      "amenities": 69,
+      "amenityByCat": {
+        "education": 6,
+        "healthcare": 7,
+        "retail": 4,
+        "community": 30,
+        "mobility": 10,
+        "services": 12
+      },
+      "gaps": [
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 3.9
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 10,
+          "shortfall": 3.7
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 30,
+          "shortfall": 2.9
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 6,
+          "shortfall": 2.3
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 7,
+          "shortfall": 2.2
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 12,
+          "shortfall": 0.8
+        }
+      ],
+      "investorsBySector": {
+        "community": 2,
+        "residential": 5
+      },
+      "investorFit": 70.5
+    },
+    {
+      "name": "Al Nakheel",
+      "emirate": "Ras Al Khaimah",
+      "synthetic": true,
+      "areaType": "central",
+      "profile": "family",
+      "baseSale": 5048,
+      "yield": 8.5,
+      "infra": 76,
+      "lat": 25.789,
+      "lng": 55.943,
+      "x": 0.7473,
+      "y": 0.0826,
+      "established": 1999,
+      "population": 261285,
+      "vacantTotal": 20,
+      "vacantByUse": {
+        "residential": {
+          "count": 0,
+          "avgPotential": 0,
+          "avgValueM": 0
+        },
+        "mixed_use": {
+          "count": 2,
+          "avgPotential": 78.9,
+          "avgValueM": 54.9
+        },
+        "community": {
+          "count": 5,
+          "avgPotential": 76,
+          "avgValueM": 55.5
+        },
+        "commercial": {
+          "count": 5,
+          "avgPotential": 68.7,
+          "avgValueM": 85.9
+        },
+        "hospitality": {
+          "count": 4,
+          "avgPotential": 68.3,
+          "avgValueM": 66.6
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 71.8,
+          "avgValueM": 72.6
+        }
+      },
+      "demand": 56,
+      "mobility": 73.2,
+      "experience": 54.4,
+      "momentum": 30.8,
+      "amenities": 44,
+      "amenityByCat": {
+        "education": 6,
+        "healthcare": 6,
+        "retail": 11,
+        "community": 14,
+        "mobility": 4,
+        "services": 3
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 14,
+          "shortfall": 8.6
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 4,
+          "shortfall": 5.8
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 3,
+          "shortfall": 4.1
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 6,
+          "shortfall": 2.5
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 6,
+          "shortfall": 2.2
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 11,
+          "shortfall": 1.2
+        }
+      ],
+      "investorsBySector": {
+        "industrial": 2,
+        "logistics": 1
+      },
+      "investorFit": 84.4
+    },
+    {
+      "name": "Mina Al Arab",
+      "emirate": "Ras Al Khaimah",
+      "synthetic": true,
+      "areaType": "coastal",
+      "profile": "leisure",
+      "baseSale": 6667,
+      "yield": 6.8,
+      "infra": 86,
+      "lat": 25.667,
+      "lng": 55.793,
+      "x": 0.6896,
+      "y": 0.1451,
+      "established": 2017,
+      "population": 334191,
+      "vacantTotal": 19,
+      "vacantByUse": {
+        "residential": {
+          "count": 5,
+          "avgPotential": 61.4,
+          "avgValueM": 82.7
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 84.3,
+          "avgValueM": 32.8
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 60.1,
+          "avgValueM": 24
+        },
+        "commercial": {
+          "count": 5,
+          "avgPotential": 81.8,
+          "avgValueM": 67.4
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 74.4,
+          "avgValueM": 46.2
+        },
+        "industrial": {
+          "count": 5,
+          "avgPotential": 60.3,
+          "avgValueM": 43.9
+        }
+      },
+      "demand": 60,
+      "mobility": 49.9,
+      "experience": 49.4,
+      "momentum": 14.3,
+      "amenities": 76,
+      "amenityByCat": {
+        "education": 8,
+        "healthcare": 8,
+        "retail": 4,
+        "community": 38,
+        "mobility": 14,
+        "services": 4
+      },
+      "gaps": [
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 4,
+          "shortfall": 4.2
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 4,
+          "shortfall": 4
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 14,
+          "shortfall": 3.1
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 38,
+          "shortfall": 2.6
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 8,
+          "shortfall": 2.4
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 8,
+          "shortfall": 2.1
+        }
+      ],
+      "investorsBySector": {
+        "hospitality": 2,
+        "commercial": 2
+      },
+      "investorFit": 69
+    },
+    {
+      "name": "Fujairah City",
+      "emirate": "Fujairah",
+      "synthetic": true,
+      "areaType": "coastal",
+      "profile": "family",
+      "baseSale": 4734,
+      "yield": 7.3,
+      "infra": 50,
+      "lat": 25.128,
+      "lng": 56.339,
+      "x": 0.8996,
+      "y": 0.4215,
+      "established": 1997,
+      "population": 146109,
+      "vacantTotal": 14,
+      "vacantByUse": {
+        "residential": {
+          "count": 4,
+          "avgPotential": 73.3,
+          "avgValueM": 84.7
+        },
+        "mixed_use": {
+          "count": 4,
+          "avgPotential": 68.7,
+          "avgValueM": 89.4
+        },
+        "community": {
+          "count": 1,
+          "avgPotential": 60.2,
+          "avgValueM": 21.3
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 72.6,
+          "avgValueM": 47.7
+        },
+        "hospitality": {
+          "count": 3,
+          "avgPotential": 64.1,
+          "avgValueM": 63.5
+        },
+        "industrial": {
+          "count": 1,
+          "avgPotential": 79.1,
+          "avgValueM": 69.3
+        }
+      },
+      "demand": 57,
+      "mobility": 59.2,
+      "experience": 84.5,
+      "momentum": 12.6,
+      "amenities": 25,
+      "amenityByCat": {
+        "education": 3,
+        "healthcare": 1,
+        "retail": 3,
+        "community": 12,
+        "mobility": 2,
+        "services": 4
+      },
+      "gaps": [
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 2,
+          "shortfall": 6
+        },
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 12,
+          "shortfall": 5.7
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 1,
+          "shortfall": 4.1
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 3,
+          "shortfall": 3.3
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 4,
+          "shortfall": 2.5
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 3,
+          "shortfall": 2.4
+        }
+      ],
+      "investorsBySector": {
+        "community": 2,
+        "industrial": 1,
+        "mixed_use": 3,
+        "hospitality": 1
+      },
+      "investorFit": 82.2
+    },
+    {
+      "name": "Dibba Al-Fujairah",
+      "emirate": "Fujairah",
+      "synthetic": true,
+      "areaType": "coastal",
+      "profile": "leisure",
+      "baseSale": 4781,
+      "yield": 6.2,
+      "infra": 75,
+      "lat": 25.592,
+      "lng": 56.273,
+      "x": 0.8742,
+      "y": 0.1836,
+      "established": 2001,
+      "population": 356343,
+      "vacantTotal": 13,
+      "vacantByUse": {
+        "residential": {
+          "count": 1,
+          "avgPotential": 81.5,
+          "avgValueM": 28.1
+        },
+        "mixed_use": {
+          "count": 1,
+          "avgPotential": 73.3,
+          "avgValueM": 36.2
+        },
+        "community": {
+          "count": 4,
+          "avgPotential": 75.8,
+          "avgValueM": 77.6
+        },
+        "commercial": {
+          "count": 1,
+          "avgPotential": 50.8,
+          "avgValueM": 88.7
+        },
+        "hospitality": {
+          "count": 2,
+          "avgPotential": 82.4,
+          "avgValueM": 63.1
+        },
+        "industrial": {
+          "count": 4,
+          "avgPotential": 75.2,
+          "avgValueM": 79
+        }
+      },
+      "demand": 72,
+      "mobility": 67.6,
+      "experience": 58,
+      "momentum": 15.6,
+      "amenities": 102,
+      "amenityByCat": {
+        "education": 13,
+        "healthcare": 8,
+        "retail": 12,
+        "community": 32,
+        "mobility": 21,
+        "services": 16
+      },
+      "gaps": [
+        {
+          "category": "community",
+          "label": "parks & community space",
+          "count": 32,
+          "shortfall": 4.9
+        },
+        {
+          "category": "healthcare",
+          "label": "clinics & pharmacies",
+          "count": 8,
+          "shortfall": 2.5
+        },
+        {
+          "category": "retail",
+          "label": "shops & daily retail",
+          "count": 12,
+          "shortfall": 2
+        },
+        {
+          "category": "mobility",
+          "label": "transit & stops",
+          "count": 21,
+          "shortfall": 1.4
+        },
+        {
+          "category": "education",
+          "label": "schools & nurseries",
+          "count": 13,
+          "shortfall": 0.9
+        },
+        {
+          "category": "services",
+          "label": "everyday services",
+          "count": 16,
+          "shortfall": 0.7
+        }
+      ],
+      "investorsBySector": {
+        "commercial": 1,
+        "community": 2,
+        "industrial": 1
+      },
+      "investorFit": 66.5
+    }
+  ],
+  "rfps": [
+    {
+      "id": "RFP-101",
+      "district": "Mohammed Bin Zayed City",
+      "need": "parks & community space",
+      "category": "community",
+      "demand": 78.8,
+      "vacantParcels": 15,
+      "matchedInvestors": 8,
+      "valueBandM": 10.2
+    },
+    {
+      "id": "RFP-102",
+      "district": "Khalifa City",
+      "need": "transit & stops",
+      "category": "mobility",
+      "demand": 72.5,
+      "vacantParcels": 11,
+      "matchedInvestors": 11,
+      "valueBandM": 11.4
+    },
+    {
+      "id": "RFP-103",
+      "district": "Al Ghadeer",
+      "need": "everyday services",
+      "category": "services",
+      "demand": 78,
+      "vacantParcels": 10,
+      "matchedInvestors": 12,
+      "valueBandM": 8
+    },
+    {
+      "id": "RFP-104",
+      "district": "Mussafah",
+      "need": "schools & nurseries",
+      "category": "education",
+      "demand": 82.2,
+      "vacantParcels": 8,
+      "matchedInvestors": 8,
+      "valueBandM": 8
+    },
+    {
+      "id": "RFP-105",
+      "district": "Danet Abu Dhabi",
+      "need": "shops & daily retail",
+      "category": "retail",
+      "demand": 61.6,
+      "vacantParcels": 15,
+      "matchedInvestors": 11,
+      "valueBandM": 14.4
+    },
+    {
+      "id": "RFP-106",
+      "district": "Al Shamkha",
+      "need": "transit & stops",
+      "category": "mobility",
+      "demand": 84,
+      "vacantParcels": 9,
+      "matchedInvestors": 6,
+      "valueBandM": 9
+    },
+    {
+      "id": "RFP-107",
+      "district": "Al Raha Beach",
+      "need": "everyday services",
+      "category": "services",
+      "demand": 55.6,
+      "vacantParcels": 11,
+      "matchedInvestors": 11,
+      "valueBandM": 17.4
+    }
+  ],
+  "ventures": [
+    {
+      "name": "Nadi Health",
+      "founder": "Layla Haddad",
+      "kind": "Clinic operator",
+      "sector": "healthcare",
+      "ask": "AED 30M",
+      "need": "clinics & pharmacies"
+    },
+    {
+      "name": "Bright Steps",
+      "founder": "Omar Farouk",
+      "kind": "Nursery network",
+      "sector": "education",
+      "ask": "AED 18M",
+      "need": "schools & nurseries"
+    },
+    {
+      "name": "Souq Corner",
+      "founder": "Maryam Saleh",
+      "kind": "Neighbourhood retail",
+      "sector": "retail",
+      "ask": "AED 12M",
+      "need": "shops & daily retail"
+    },
+    {
+      "name": "GreenLine",
+      "founder": "Yousef Karim",
+      "kind": "Last-mile transit",
+      "sector": "mobility",
+      "ask": "AED 45M",
+      "need": "transit & stops"
+    },
+    {
+      "name": "Majlis Spaces",
+      "founder": "Hessa Al Junaibi",
+      "kind": "Community & events",
+      "sector": "community",
+      "ask": "AED 9M",
+      "need": "parks & community space"
+    },
+    {
+      "name": "CareWell",
+      "founder": "Sami Nasser",
+      "kind": "Pharmacy chain",
+      "sector": "healthcare",
+      "ask": "AED 22M",
+      "need": "clinics & pharmacies"
+    },
+    {
+      "name": "Foundry Logistics",
+      "founder": "Rashid Obaid",
+      "kind": "Light logistics hub",
+      "sector": "logistics",
+      "ask": "AED 60M",
+      "need": "everyday services"
+    },
+    {
+      "name": "PlayPark",
+      "founder": "Dana Khalil",
+      "kind": "Family leisure",
+      "sector": "community",
+      "ask": "AED 14M",
+      "need": "parks & community space"
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #141312;
+  --color-foreground: #faf6ee;
+  --color-foreground-muted: #b5ae9f;
+  
+  --color-surface: #1e1c1b;
+  --color-surface-2: #282524;
+  --color-surface-active: #3e3937;
+  
+  --color-border: #383332;
+  
+  --color-accent: #ced7e3;
+  --color-accent-hover: #b8c3d4;
+  --color-accent-foreground: #141312;
+
+  /* Aliases so the MapLibre wrapper (shadcn-style tokens) inherits our palette */
+  --color-popover: #1e1c1b;
+  --color-popover-foreground: #faf6ee;
+  --color-muted: #282524;
+  --color-muted-foreground: #b5ae9f;
+  --color-ring: #ced7e3;
+  
+  --color-cream: #faf6ee;
+  --color-cream-hover: #eae1cf;
+  --color-cream-foreground: #141312;
+  
+  --color-destructive: #ef4444;
+
+  /* Xpand gap-severity scale (warm, editorial — not neon) */
+  --color-ok: #7fa89c;
+  --color-emerging: #d8b163;
+  --color-critical: #d9694e;
+
+  --font-serif: var(--font-tt-artnik), "Georgia", serif;
+  --font-sans: var(--font-satoshi), "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --radius-md: 4px;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom terminal scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-foreground-muted);
+}
+
+/* Card Canvas & Glow Card borders custom system */
+.card-canvas {
+  position: relative;
+  width: 100%;
+}
+
+.card-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(206, 215, 227, 0.02),
+    transparent 60%
+  );
+  transition: opacity 0.5s ease;
+}
+
+.glow-card {
+  position: relative;
+  border-radius: 12px;
+  background: rgba(30, 28, 27, 0.6);
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-card:hover {
+  background: var(--color-surface-2);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.border-element {
+  position: absolute;
+  background: var(--color-border);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.border-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1.5px;
+  filter: url(#unopaq);
+}
+
+.border-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1.5px;
+  filter: url(#unopaq);
+}
+
+.border-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  filter: url(#unopaq);
+}
+
+.border-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  filter: url(#unopaq);
+}
+
+/* Hover glow borders using palette accent (#ced7e3) */
+.glow-card:hover .border-element {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+.card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+}
+
+/* ── Metallic logo mark ─────────────────────────────────────────────
+   The user's logo (public/xpand-mark.png) is used as an alpha mask and
+   filled with a moving chrome gradient in the Andrej accent palette. */
+.metallic-mark {
+  display: inline-block;
+  -webkit-mask: url(/xpand-mark.png) center / contain no-repeat;
+  mask: url(/xpand-mark.png) center / contain no-repeat;
+  background-image: linear-gradient(
+    125deg,
+    #5b5f66 0%,
+    #b8c3d4 18%,
+    #faf6ee 34%,
+    #ced7e3 50%,
+    #8a929e 64%,
+    #eae1cf 80%,
+    #6b7280 100%
+  );
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.metallic-mark--animate {
+  animation: metallic-sheen 6s ease-in-out infinite;
+}
+.metallic-mark:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 10px rgba(206, 215, 227, 0.55));
+}
+@keyframes metallic-sheen {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .metallic-mark--animate { animation: none; }
+}
+
+/* ── Severity helpers ─────────────────────────────────────────────── */
+.sev-ok { color: var(--color-ok); }
+.sev-emerging { color: var(--color-emerging); }
+.sev-critical { color: var(--color-critical); }
+.sev-bg-ok { background: color-mix(in srgb, var(--color-ok) 18%, transparent); }
+.sev-bg-emerging { background: color-mix(in srgb, var(--color-emerging) 18%, transparent); }
+.sev-bg-critical { background: color-mix(in srgb, var(--color-critical) 18%, transparent); }
+
+/* subtle grain-gradient backdrop (CSS port of the paper-design shader) */
+.grain-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 12% 8%, rgba(62, 57, 55, 0.55), transparent 60%),
+    radial-gradient(55% 45% at 88% 12%, rgba(52, 59, 70, 0.5), transparent 60%),
+    radial-gradient(70% 60% at 80% 95%, rgba(40, 37, 36, 0.6), transparent 65%),
+    var(--color-background);
+}
+.grain-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* blur word reveal (CSS port of Andrej TextEffect preset="blur") */
+.te-word {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  filter: blur(12px);
+  animation: te-in 0.6s ease forwards;
+}
+@keyframes te-in {
+  to { opacity: 1; filter: blur(0); }
+}
+
+/* ── MapLibre theming to match the Xpand palette ───────────────────── */
+.maplibregl-map {
+  font-family: var(--font-sans);
+}
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  color: var(--color-foreground-muted);
+  border-radius: 6px;
+}
+.maplibregl-ctrl-attrib a { color: var(--color-foreground-muted); }
+.maplibregl-ctrl-attrib-button { filter: invert(1) opacity(0.5); }
+/* We render tooltip/popup bodies ourselves — strip the default chrome. */
+.maplibregl-popup-content {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.maplibregl-popup-tip { display: none !important; }
+.maplibregl-popup-anchor-top,
+.maplibregl-popup-anchor-bottom { will-change: transform; }
+
+/* ── Map markers: district dots + K2 recommendation pins ───────────── */
+.xpand-dot {
+  border-radius: 9999px;
+  border: 2px solid rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.xpand-dot:hover { transform: scale(1.18); }
+.xpand-dot--selected {
+  border-color: var(--color-foreground);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-foreground) 25%, transparent);
+}
+.xpand-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 1.5px solid currentColor;
+  opacity: 0.6;
+  animation: xpand-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes xpand-ping {
+  0% { transform: scale(0.7); opacity: 0.6; }
+  80%, 100% { transform: scale(1.9); opacity: 0; }
+}
+
+.xpand-recpin {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px 10px 10px 2px;
+  transform: rotate(45deg);
+  background: var(--color-surface);
+  border: 1.5px solid currentColor;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  animation: rec-drop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.xpand-recpin > * { transform: rotate(-45deg); }
+@keyframes rec-drop {
+  0% { opacity: 0; transform: rotate(45deg) translateY(-14px) scale(0.6); }
+  100% { opacity: 1; transform: rotate(45deg) translateY(0) scale(1); }
+}
+
+/* Landing page — animated map preview strip */
+.demo-map-preview {
+  background:
+    radial-gradient(circle at 20% 40%, color-mix(in srgb, var(--color-critical) 35%, transparent), transparent 45%),
+    radial-gradient(circle at 55% 60%, color-mix(in srgb, var(--color-emerging) 30%, transparent), transparent 40%),
+    radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--color-ok) 25%, transparent), transparent 35%),
+    linear-gradient(160deg, var(--color-surface) 0%, var(--color-background) 100%);
+  animation: demo-map-drift 12s ease-in-out infinite alternate;
+}
+@keyframes demo-map-drift {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.06) translate(-2%, 1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-map-preview { animation: none; }
+}
+
