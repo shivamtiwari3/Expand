@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/xpand-logo.png" alt="Xpand logo" width="80" />
+
 <img src="public/readme-banner.svg" alt="Xpand — UAE service gap intelligence" width="100%" />
 
 <br /><br />
