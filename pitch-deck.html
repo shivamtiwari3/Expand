@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xpand — Pitch Deck</title>
+<style>
+  /* ── Fonts: exact match to Xpand app ──────────────────────────────── */
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'TT Artnik';
+    src: url('public/fonts/TTArtnikDemo-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('public/fonts/Satoshi-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #141312;
+    --fg: #faf6ee;
+    --fg-muted: #b5ae9f;
+    --surface: #1e1c1b;
+    --surface-2: #282524;
+    --surface-active: #3e3937;
+    --border: #383332;
+    --accent: #ced7e3;
+    --accent-hover: #b8c3d4;
+    --accent-fg: #141312;
+    --cream: #faf6ee;
+    --cream-hover: #eae1cf;
+    --ok: #7fa89c;
+    --emerging: #d8b163;
+    --critical: #d9694e;
+    --serif: 'TT Artnik', Georgia, serif;
+    --sans: 'Satoshi', 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Metallic Logo Mark (same as globals.css) ─────────────────────── */
+  .metallic-mark {
+    display: inline-block;
+    -webkit-mask: url(public/xpand-mark.png) center / contain no-repeat;
+    mask: url(public/xpand-mark.png) center / contain no-repeat;
+    background-image: linear-gradient(
+      125deg,
+      #5b5f66 0%,
+      #b8c3d4 18%,
+      #faf6ee 34%,
+      #ced7e3 50%,
+      #8a929e 64%,
+      #eae1cf 80%,
+      #6b7280 100%
+    );
+    background-size: 220% 220%;
+    background-position: 0% 50%;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+    animation: metallic-sheen 6s ease-in-out infinite;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .metallic-mark:hover {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 10px rgba(206, 215, 227, 0.55));
+  }
+  @keyframes metallic-sheen {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ── Grain background (same as globals.css) ───────────────────────── */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(60% 50% at 12% 8%, rgba(62, 57, 55, 0.55), transparent 60%),
+      radial-gradient(55% 45% at 88% 12%, rgba(52, 59, 70, 0.5), transparent 60%),
+      radial-gradient(70% 60% at 80% 95%, rgba(40, 37, 36, 0.6), transparent 65%),
+      var(--bg);
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ── Deck ──────────────────────────────────────────────────────────── */
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(30px);
+    z-index: 1;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+  .slide.prev {
+    transform: translateX(-30px);
+  }
+
+  /* ── Typography ────────────────────────────────────────────────────── */
+  h1 {
+    font-family: var(--serif);
+    font-size: 4.8rem;
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  p {
+    font-family: var(--sans);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--fg-muted);
+    max-width: 680px;
+  }
+  .mono {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+  }
+
+  /* ── Slide number ──────────────────────────────────────────────────── */
+  .slide-number {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Badge ─────────────────────────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(20, 19, 18, 0.4);
+    backdrop-filter: blur(12px);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--fg-muted);
+    margin-bottom: 24px;
+  }
+  .badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Stats grid ────────────────────────────────────────────────────── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-top: 40px;
+    width: 100%;
+    max-width: 720px;
+  }
+  .stat {
+    background: rgba(20, 19, 18, 0.8);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--fg);
+  }
+  .stat-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--fg-muted);
+    margin-top: 4px;
+  }
+
+  /* ── Feature grid ──────────────────────────────────────────────────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-top: 36px;
+    width: 100%;
+    max-width: 800px;
+  }
+  .feature {
+    background: rgba(20, 19, 18, 0.8);
+    padding: 32px 28px;
+  }
+  .feature-num {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+  }
+  .feature-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--fg);
+    margin-top: 10px;
+  }
+  .feature-body {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  /* ── Pain points ───────────────────────────────────────────────────── */
+  .pain-list {
+    list-style: none;
+    margin-top: 32px;
+    max-width: 700px;
+    width: 100%;
+  }
+  .pain-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--fg-muted);
+    line-height: 1.55;
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .pain-icon.critical { background: rgba(217, 105, 78, 0.15); color: var(--critical); }
+  .pain-icon.emerging { background: rgba(216, 177, 99, 0.15); color: var(--emerging); }
+
+  /* ── Solution cards ────────────────────────────────────────────────── */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+    max-width: 860px;
+    width: 100%;
+  }
+  .sol-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 22px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  .sol-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    background: var(--surface-2);
+  }
+  .sol-card h4 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--fg);
+  }
+  .sol-card p { font-size: 0.82rem; color: var(--fg-muted); line-height: 1.55; max-width: none; }
+
+  /* ── Market numbers ────────────────────────────────────────────────── */
+  .market-numbers {
+    display: flex;
+    gap: 48px;
+    margin-top: 44px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .market-item { text-align: center; }
+  .market-item .big {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .market-item .label {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--fg-muted);
+    margin-top: 6px;
+  }
+
+  /* ── Timeline ──────────────────────────────────────────────────────── */
+  .timeline {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 48px;
+    max-width: 860px;
+    width: 100%;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    right: 60px;
+    height: 1.5px;
+    background: var(--border);
+  }
+  .timeline-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 12px;
+  }
+  .timeline-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1.5px solid var(--accent);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 16px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    position: relative;
+    z-index: 2;
+  }
+  .timeline-step h4 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--fg);
+  }
+  .timeline-step p {
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+    line-height: 1.5;
+    max-width: none;
+  }
+
+  /* ── Stack chips ───────────────────────────────────────────────────── */
+  .stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+    justify-content: center;
+    max-width: 620px;
+  }
+  .stack-chip {
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .stack-chip:hover {
+    border-color: var(--accent);
+    color: var(--fg);
+  }
+
+  /* ── CTA button (metallic style without shader) ────────────────────── */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    padding: 14px 32px;
+    border-radius: 100px;
+    background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
+    border: 1px solid rgba(206, 215, 227, 0.2);
+    color: var(--fg);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0px 36px 14px 0px rgba(0, 0, 0, 0.02), 0px 20px 12px 0px rgba(0, 0, 0, 0.08), 0px 9px 9px 0px rgba(0, 0, 0, 0.12), 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 12px 6px 0px rgba(0, 0, 0, 0.05), 0px 8px 5px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    border-color: rgba(206, 215, 227, 0.4);
+  }
+  .cta-btn svg {
+    color: var(--accent);
+  }
+
+  /* ── Navigation ────────────────────────────────────────────────────── */
+  .nav {
+    position: fixed;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
+    backdrop-filter: blur(12px);
+  }
+  .nav button {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--fg);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 0.85rem;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    font-family: var(--sans);
+  }
+  .nav button:hover {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border-color: var(--accent);
+  }
+  .nav .dots {
+    display: flex;
+    gap: 6px;
+  }
+  .nav .dots span {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .nav .dots span.active {
+    background: var(--accent);
+    transform: scale(1.35);
+  }
+
+  /* ── Progress bar ──────────────────────────────────────────────────── */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--fg));
+    transition: width 0.4s ease;
+    z-index: 200;
+  }
+
+  /* ── Data source box ───────────────────────────────────────────────── */
+  .data-box {
+    margin-top: 36px;
+    padding: 24px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+  }
+  .data-box .label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+  .data-box p {
+    font-size: 0.85rem;
+    max-width: none;
+    line-height: 1.6;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .slide { padding: 40px 24px; }
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .features { grid-template-columns: 1fr; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .market-numbers { gap: 28px; }
+    .timeline { flex-direction: column; gap: 24px; }
+    .timeline::before { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide active" data-slide="0">
+    <span class="metallic-mark" style="width: 80px; height: 80px;" aria-label="Xpand"></span>
+    <div class="badge" style="margin-top: 28px;">
+      <span class="dot"></span>
+      UAE AI PropTech &middot; Decision Intelligence
+    </div>
+    <h1 style="text-align: center;">Xpand</h1>
+    <p style="text-align: center; margin-top: 16px; font-size: 1.3rem;">
+      See what every area is missing &mdash; before it&rsquo;s missed.
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">1,200+</div>
+        <div class="stat-label">Districts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">94,000+</div>
+        <div class="stat-label">Real Amenities</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">88,000+</div>
+        <div class="stat-label">Land Parcels</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">46,000+</div>
+        <div class="stat-label">Live Listings</div>
+      </div>
+    </div>
+    <div class="slide-number">01 / 08</div>
+  </div>
+
+  <!-- SLIDE 2: Problem -->
+  <div class="slide" data-slide="1">
+    <span class="mono">The Problem</span>
+    <h2 style="text-align: center; margin-top: 12px;">Communities grow.<br>Infrastructure doesn&rsquo;t keep up.</h2>
+    <ul class="pain-list">
+      <li>
+        <div class="pain-icon critical">!</div>
+        <div><strong style="color: var(--fg);">Invisible gaps.</strong> New residents move in, but no one knows the nearest clinic is 40 min away until it&rsquo;s an emergency.</div>
+      </li>
+      <li>
+        <div class="pain-icon critical">!</div>
+        <div><strong style="color: var(--fg);">Reactive planning.</strong> Governments build schools after years of overcrowding &mdash; not before families arrive.</div>
+      </li>
+      <li>
+        <div class="pain-icon emerging">?</div>
+        <div><strong style="color: var(--fg);">Disconnected investors.</strong> Capital is ready, land is available, but no one connects the demand to the opportunity.</div>
+      </li>
+      <li>
+        <div class="pain-icon emerging">?</div>
+        <div><strong style="color: var(--fg);">Siloed data.</strong> Land records, population data, amenities, market listings &mdash; locked in separate systems across 7 emirates.</div>
+      </li>
+    </ul>
+    <div class="slide-number">02 / 08</div>
+  </div>
+
+  <!-- SLIDE 3: Solution -->
+  <div class="slide" data-slide="2">
+    <span class="mono">The Solution</span>
+    <h2 style="text-align: center; margin-top: 12px;">From raw data to<br>where to build next.</h2>
+    <p style="text-align: center; margin-top: 16px;">
+      Xpand is an AI-powered decision intelligence platform that detects service gaps across the UAE, forecasts emerging demand, and turns each gap into an actionable proposal &mdash; connected to investors ready to fill it.
+    </p>
+    <div class="solution-grid">
+      <div class="sol-card">
+        <div class="mono" style="margin-bottom: 8px;">01</div>
+        <h4>Detect</h4>
+        <p>Joins land, population, demand &amp; real OpenStreetMap amenities to score every area on how well its residents are served.</p>
+      </div>
+      <div class="sol-card">
+        <div class="mono" style="margin-bottom: 8px;">02</div>
+        <h4>Forecast</h4>
+        <p>Projects the next 12 months from price momentum and growth, then translates new residents into needed services.</p>
+      </div>
+      <div class="sol-card">
+        <div class="mono" style="margin-bottom: 8px;">03</div>
+        <h4>Connect</h4>
+        <p>Turns the widest gaps into open RFPs &mdash; the need, the vacant land, and the investors already interested.</p>
+      </div>
+    </div>
+    <div class="slide-number">03 / 08</div>
+  </div>
+
+  <!-- SLIDE 4: How It Works -->
+  <div class="slide" data-slide="3">
+    <span class="mono">How It Works</span>
+    <h2 style="text-align: center; margin-top: 12px;">Four steps. Zero sign-in.</h2>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-dot">01</div>
+        <h4>Ingest</h4>
+        <p>Parcels, transactions, communities, OSM amenities, live listings &mdash; unified across 7 emirates.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">02</div>
+        <h4>Score</h4>
+        <p>Gap detection engine rates each district by service coverage vs. resident demand.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">03</div>
+        <h4>Forecast</h4>
+        <p>Demand forecaster projects 12-month need for schools, clinics, transit, retail.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">04</div>
+        <h4>Propose</h4>
+        <p>K2 AI generates proposals, matching gaps to vacant land and ready investors.</p>
+      </div>
+    </div>
+    <div class="slide-number">04 / 08</div>
+  </div>
+
+  <!-- SLIDE 5: Product -->
+  <div class="slide" data-slide="4">
+    <span class="mono">Product</span>
+    <h2 style="text-align: center; margin-top: 12px;">The intelligence layer<br>for UAE communities.</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-num">01</div>
+        <div class="feature-title">Gap Detection Engine</div>
+        <div class="feature-body">Scores every area on how well residents are served &mdash; education, healthcare, transit, retail.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-num">02</div>
+        <div class="feature-title">Demand Forecaster</div>
+        <div class="feature-body">Projects what new residents will need in the next 12 months from price momentum and growth signals.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-num">03</div>
+        <div class="feature-title">Proposals, Not Charts</div>
+        <div class="feature-body">Generates RFPs with the need, vacant land, and investors &mdash; so a gap becomes something you act on.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-num">04</div>
+        <div class="feature-title">K2 AI Copilot</div>
+        <div class="feature-body">Ask in plain language. Get anonymous, tailored insights for your role, area, sectors and budget.</div>
+      </div>
+    </div>
+    <div class="slide-number">05 / 08</div>
+  </div>
+
+  <!-- SLIDE 6: Market -->
+  <div class="slide" data-slide="5">
+    <span class="mono">Market Opportunity</span>
+    <h2 style="text-align: center; margin-top: 12px;">The UAE is building<br>at unprecedented scale.</h2>
+    <p style="text-align: center; margin-top: 16px;">
+      With over $1 trillion in planned real estate development and a population growing 4%+ annually, the gap between where people live and what services exist is widening every month.
+    </p>
+    <div class="market-numbers">
+      <div class="market-item">
+        <div class="big">$1T+</div>
+        <div class="label">Planned RE Development</div>
+      </div>
+      <div class="market-item">
+        <div class="big">7</div>
+        <div class="label">Emirates Covered</div>
+      </div>
+      <div class="market-item">
+        <div class="big">4%+</div>
+        <div class="label">Annual Pop. Growth</div>
+      </div>
+      <div class="market-item">
+        <div class="big">$52B</div>
+        <div class="label">PropTech TAM (MENA)</div>
+      </div>
+    </div>
+    <div class="slide-number">06 / 08</div>
+  </div>
+
+  <!-- SLIDE 7: Tech Stack -->
+  <div class="slide" data-slide="6">
+    <span class="mono">Technology</span>
+    <h2 style="text-align: center; margin-top: 12px;">Built for speed,<br>grounded in real data.</h2>
+    <p style="text-align: center; margin-top: 16px;">
+      Every insight is grounded on computed numbers from real datasets &mdash; not hallucinated. K2 Think explains, never invents.
+    </p>
+    <div class="stack-list">
+      <div class="stack-chip">Next.js 16</div>
+      <div class="stack-chip">LangGraph</div>
+      <div class="stack-chip">LangChain</div>
+      <div class="stack-chip">MapLibre GL</div>
+      <div class="stack-chip">OpenStreetMap</div>
+      <div class="stack-chip">eVoost Data API</div>
+      <div class="stack-chip">Framer Motion</div>
+      <div class="stack-chip">K2 Think (AI)</div>
+      <div class="stack-chip">TypeScript</div>
+      <div class="stack-chip">Tailwind CSS 4</div>
+    </div>
+    <div class="data-box">
+      <div class="label">Data Sources</div>
+      <p>eVoost / HuggingFace datasets (parcels, communities, transactions, investors) + real OpenStreetMap amenity extract + live UAE property listings via eVoost API.</p>
+    </div>
+    <div class="slide-number">07 / 08</div>
+  </div>
+
+  <!-- SLIDE 8: CTA -->
+  <div class="slide" data-slide="7">
+    <span class="metallic-mark" style="width: 72px; height: 72px;" aria-label="Xpand"></span>
+    <h2 style="text-align: center; margin-top: 28px;">Let&rsquo;s build smarter<br>communities. Together.</h2>
+    <p style="text-align: center; margin-top: 16px;">
+      Xpand turns fragmented data into a unified intelligence layer &mdash; so the next school, clinic, or transit hub gets built where people need it, not where it&rsquo;s easiest to plan.
+    </p>
+    <button class="cta-btn" onclick="window.open('/dashboard', '_blank')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--accent);"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+      Open the Dashboard
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <div style="margin-top: 44px; text-align: center;">
+      <div class="mono" style="margin-bottom: 10px;">Built for</div>
+      <p style="font-size: 0.95rem; text-align: center;">Abu Dhabi AI PropTech Challenge 2025<br><span style="color: var(--accent);">Decision Intelligence Track</span></p>
+    </div>
+    <div class="slide-number">08 / 08</div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <button id="prev-btn" aria-label="Previous slide">&larr;</button>
+  <div class="dots" id="dots"></div>
+  <button id="next-btn" aria-label="Next slide">&rarr;</button>
+</nav>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(index) {
+    if (index < 0 || index >= slides.length) return;
+    const direction = index > current ? 1 : -1;
+    slides[current].classList.remove('active');
+    if (direction > 0) slides[current].classList.add('prev');
+    else slides[current].classList.remove('prev');
+    current = index;
+    slides.forEach(s => s.classList.remove('prev'));
+    if (direction < 0) slides[current].style.transform = '';
+    slides[current].classList.add('active');
+    updateDots();
+    updateProgress();
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.querySelectorAll('span');
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function updateProgress() {
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+  }
+
+  document.getElementById('prev-btn').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('next-btn').addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 60) diff > 0 ? goTo(current + 1) : goTo(current - 1);
+  });
+
+  updateProgress();
+</script>
+</body>
+</html>

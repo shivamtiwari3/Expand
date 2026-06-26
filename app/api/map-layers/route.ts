@@ -22,31 +22,54 @@ function parseCSV(filename: string): Record<string, string>[] {
   }
 }
 
+const EXTRA_AREA_COORDS: Record<string, { lat: number; lng: number }> = {
+  "Al Bandar": { lat: 24.455, lng: 54.61 },
+  "Al Danah": { lat: 24.49, lng: 54.37 },
+  "Al Hudayriat Island": { lat: 24.43, lng: 54.28 },
+  "Al Jubail Island": { lat: 24.55, lng: 54.5 },
+  "Al Marjan Island": { lat: 25.82, lng: 55.73 },
+  "Al Mina": { lat: 24.51, lng: 54.38 },
+  "Al Muroor": { lat: 24.45, lng: 54.4 },
+  "Al Mushrif": { lat: 24.46, lng: 54.39 },
+  "Al Nahyan": { lat: 24.47, lng: 54.37 },
+  "Al Raha Gardens": { lat: 24.46, lng: 54.59 },
+  "Al Bahia": { lat: 24.54, lng: 54.66 },
+  "Al Falah": { lat: 24.38, lng: 54.59 },
+  "Baniyas": { lat: 24.54, lng: 54.62 },
+  "Fahid Island": { lat: 24.46, lng: 54.34 },
+  "Ghantoot": { lat: 24.84, lng: 55.04 },
+  "Golf Gardens": { lat: 24.43, lng: 54.58 },
+  "Shakhbout City": { lat: 24.36, lng: 54.63 },
+  "Shams Abu Dhabi": { lat: 24.49, lng: 54.4 },
+  "Al Samha": { lat: 24.4, lng: 54.72 },
+  "Al Shahama": { lat: 24.55, lng: 54.63 },
+  "Zayed City": { lat: 24.37, lng: 54.5 },
+  "Al Zahiyah": { lat: 24.48, lng: 54.36 },
+  "Capital Centre": { lat: 24.44, lng: 54.58 },
+  "Hydra Village": { lat: 24.48, lng: 54.75 },
+  "Madinat Al Riyadh": { lat: 24.36, lng: 54.48 },
+  "Sas Al Nakhl": { lat: 24.41, lng: 54.49 },
+  "Danet Abu Dhabi": { lat: 24.46, lng: 54.38 },
+  "Al Wathba": { lat: 24.22, lng: 54.63 },
+};
+
 function getDistrictCoords(): Record<string, { lat: number; lng: number }> {
+  const map: Record<string, { lat: number; lng: number }> = { ...EXTRA_AREA_COORDS };
   try {
     const filePath = join(process.cwd(), "lib", "xpand-data.json");
     const raw = readFileSync(filePath, "utf-8");
     const data = JSON.parse(raw);
-    const map: Record<string, { lat: number; lng: number }> = {};
     for (const d of data.districts) {
       map[d.name] = { lat: d.lat, lng: d.lng };
     }
-    // Also load from CSV for districts not in xpand-data
-    const rows = parseCSV("districts.csv");
-    for (const r of rows) {
-      if (!map[r.district]) {
-        map[r.district] = { lat: parseFloat(r.latitude), lng: parseFloat(r.longitude) };
-      }
-    }
-    return map;
-  } catch {
-    const rows = parseCSV("districts.csv");
-    const map: Record<string, { lat: number; lng: number }> = {};
-    for (const r of rows) {
+  } catch {}
+  const rows = parseCSV("districts.csv");
+  for (const r of rows) {
+    if (!map[r.district]) {
       map[r.district] = { lat: parseFloat(r.latitude), lng: parseFloat(r.longitude) };
     }
-    return map;
   }
+  return map;
 }
 
 function jitter(base: number, range = 0.012): number {
@@ -159,33 +182,36 @@ export async function GET(request: Request) {
     const apiKey = process.env.UAE_DATA_API_KEY;
     if (apiKey) {
       try {
-        const url = `https://uae-data-api.evoost-ai.workers.dev/v1/listings/search?emirate=Abu%20Dhabi&limit=100&page=1`;
-        const res = await fetch(url, {
-          headers: { "x-api-key": apiKey, Accept: "application/json" },
-        });
-        if (res.ok) {
+        const allLive: any[] = [];
+        for (let page = 1; page <= 5; page++) {
+          const url = `https://uae-data-api.evoost-ai.workers.dev/v1/listings/search?emirate=Abu%20Dhabi&limit=100&page=${page}`;
+          const res = await fetch(url, {
+            headers: { "x-api-key": apiKey, Accept: "application/json" },
+          });
+          if (!res.ok) break;
           const data = await res.json();
           const items = data.items || [];
-          result.live = items
-            .filter((l: any) => l.area && districtCoords[l.area])
-            .slice(0, 100)
-            .map((l: any, i: number) => {
-              const coords = districtCoords[l.area];
-              return {
-                id: l.id || `live-${i}`,
-                lat: jitter(coords.lat, 0.015),
-                lng: jitter(coords.lng, 0.015),
-                title: l.title || "Live listing",
-                price: l.price || 0,
-                type: l.transaction_type || "sale",
-                area: l.area || "",
-                bedrooms: l.bedrooms || 0,
-                size: l.built_up_area_sqm || 0,
-              };
-            });
-        } else {
-          result.live = [];
+          if (!items.length) break;
+          allLive.push(...items);
+          if (allLive.filter((l: any) => l.area && districtCoords[l.area]).length >= 80) break;
         }
+        result.live = allLive
+          .filter((l: any) => l.area && districtCoords[l.area])
+          .slice(0, 100)
+          .map((l: any, i: number) => {
+            const coords = districtCoords[l.area];
+            return {
+              id: l.id || `live-${i}`,
+              lat: jitter(coords.lat, 0.015),
+              lng: jitter(coords.lng, 0.015),
+              title: l.title || "Live listing",
+              price: l.price || 0,
+              type: l.transaction_type || "sale",
+              area: l.area || "",
+              bedrooms: l.bedrooms || 0,
+              size: l.built_up_area_sqm || 0,
+            };
+          });
       } catch {
         result.live = [];
       }
