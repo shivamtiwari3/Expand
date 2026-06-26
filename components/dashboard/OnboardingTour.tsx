@@ -126,12 +126,12 @@ export default function OnboardingTour() {
   const card = (
     <motion.div
       key={step.id}
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      exit={{ opacity: 0, y: -6 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className={cn(
-        "pointer-events-auto z-[210] w-[min(22rem,calc(100vw-2rem))] rounded-xl border border-border bg-surface/95 p-5 shadow-2xl backdrop-blur-xl",
+        "pointer-events-auto z-[210] w-[min(16rem,calc(100vw-2rem))] rounded-lg border border-border bg-surface/95 p-3 shadow-xl backdrop-blur-xl",
         spot && cardPos ? "fixed" : "fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
       )}
       style={
@@ -140,44 +140,44 @@ export default function OnboardingTour() {
           : undefined
       }
     >
-      <div className="mb-3 flex items-start justify-between gap-3">
-        <div className="flex items-center gap-2">
+      <div className="mb-1.5 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1.5">
           {isFirst ? (
-            <MetallicLogo size={28} />
+            <MetallicLogo size={18} />
           ) : (
-            <Sparkles className="size-4 text-accent" />
+            <Sparkles className="size-3 text-accent" />
           )}
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-            {stepIdx + 1} / {ONBOARDING_STEPS.length}
+          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
+            {stepIdx + 1}/{ONBOARDING_STEPS.length}
           </span>
         </div>
         <button
           type="button"
           onClick={finish}
           aria-label="Skip tour"
-          className="rounded-md p-1 text-foreground-muted transition hover:bg-surface-active hover:text-foreground"
+          className="rounded p-0.5 text-foreground-muted transition hover:bg-surface-active hover:text-foreground"
         >
-          <X className="size-4" />
+          <X className="size-3.5" />
         </button>
       </div>
-      <h2 className="font-serif text-xl tracking-tight text-foreground">{step.title}</h2>
-      <p className="mt-2 text-sm leading-relaxed text-foreground-muted">{step.body}</p>
-      <div className="mt-5 flex items-center justify-between gap-2">
+      <h2 className="text-sm font-semibold tracking-tight text-foreground">{step.title}</h2>
+      <p className="mt-1 text-[11px] leading-snug text-foreground-muted line-clamp-3">{step.body}</p>
+      <div className="mt-3 flex items-center justify-between gap-1">
         <button
           type="button"
           disabled={isFirst}
           onClick={() => go(stepIdx - 1)}
-          className="flex items-center gap-1 rounded-md px-2 py-1.5 text-xs text-foreground-muted transition hover:text-foreground disabled:opacity-30"
+          className="flex items-center gap-0.5 rounded px-1.5 py-1 text-[10px] text-foreground-muted transition hover:text-foreground disabled:opacity-30"
         >
-          <ChevronLeft className="size-3.5" />
+          <ChevronLeft className="size-3" />
           Back
         </button>
-        <div className="flex gap-1">
+        <div className="flex gap-0.5">
           {ONBOARDING_STEPS.map((_, i) => (
             <span
               key={i}
               className={cn(
-                "h-1 w-4 rounded-full transition",
+                "h-0.5 w-2.5 rounded-full transition",
                 i === stepIdx ? "bg-accent" : "bg-border",
               )}
             />
@@ -186,10 +186,10 @@ export default function OnboardingTour() {
         <button
           type="button"
           onClick={() => (isLast ? finish() : go(stepIdx + 1))}
-          className="flex items-center gap-1 rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-accent-foreground transition hover:bg-accent-hover"
+          className="flex items-center gap-0.5 rounded bg-accent px-2 py-1 text-[10px] font-medium text-accent-foreground transition hover:bg-accent-hover"
         >
-          {isLast ? "Start exploring" : "Next"}
-          {!isLast && <ChevronRight className="size-3.5" />}
+          {isLast ? "Go" : "Next"}
+          {!isLast && <ChevronRight className="size-3" />}
         </button>
       </div>
     </motion.div>

@@ -265,54 +265,52 @@ function RfpCard({ rfp, index, onRespond }: RfpCardProps) {
         scale: { duration: 0.2 },
       }}
     >
-      <Card className="h-full flex flex-col bg-surface/40">
-        <div className="flex flex-col gap-4 h-full p-5">
+      <Card className="flex flex-col bg-surface/40">
+        <div className="flex flex-col gap-3 p-4">
           {/* Top row: id + category chip */}
           <div className="flex items-center justify-between gap-2">
             <span className="font-mono text-[10px] text-accent/70 tracking-widest uppercase">{rfp.id}</span>
             <span className={cn(
-              "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono border",
+              "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono border truncate max-w-[140px]",
               CATEGORY_COLOR[rfp.category]
             )}>
               <span className={cn("w-1.5 h-1.5 rounded-full flex-shrink-0", CATEGORY_DOT[rfp.category])} />
-              {CATEGORY_LABEL[rfp.category]}
+              <span className="truncate">{CATEGORY_LABEL[rfp.category]}</span>
             </span>
           </div>
 
-          {/* District name */}
-          <div>
-            <button
-              onClick={() => setSelected(rfp.district)}
-              className="font-serif text-lg text-foreground leading-snug text-left hover:text-accent transition-colors group"
-            >
-              {rfp.district}
-              <span className="ml-1 opacity-0 group-hover:opacity-50 transition-opacity text-xs font-sans">↗</span>
-            </button>
-          </div>
-
-          {/* Need — prominent */}
-          <div className="flex items-start gap-2.5 flex-1">
+          {/* District name + need */}
+          <div className="flex items-start gap-3">
             <div className={cn(
-              "flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center border mt-0.5",
+              "flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center border",
               CATEGORY_COLOR[rfp.category]
             )}>
               <CategoryIcon className="w-3.5 h-3.5" />
             </div>
-            <p className="text-sm text-foreground/80 leading-relaxed font-medium">{rfp.need}</p>
+            <div className="min-w-0 flex-1">
+              <button
+                onClick={() => setSelected(rfp.district)}
+                className="font-serif text-sm text-foreground leading-snug text-left hover:text-accent transition-colors group truncate block w-full"
+              >
+                {rfp.district}
+                <span className="ml-1 opacity-0 group-hover:opacity-50 transition-opacity text-[10px] font-sans">↗</span>
+              </button>
+              <p className="text-xs text-foreground/60 leading-relaxed mt-0.5">{rfp.need}</p>
+            </div>
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-3 pt-3 border-t border-border/30">
+          <div className="grid grid-cols-4 gap-2 pt-2 border-t border-border/30">
             <Stat label="Demand" value={`${rfp.demand}/100`} />
-            <Stat label="Vacant Parcels" value={rfp.vacantParcels} />
+            <Stat label="Parcels" value={rfp.vacantParcels} />
             <Stat label="Investors" value={rfp.matchedInvestors} />
-            <Stat label="Est. Value" value={`AED ${rfp.valueBandM}M`} />
+            <Stat label="Value" value={`${rfp.valueBandM}M`} />
           </div>
 
           {/* Respond button */}
           <button
             onClick={() => onRespond(rfp)}
-            className="mt-auto w-full rounded-lg bg-accent text-accent-foreground hover:bg-accent-hover py-2.5 text-xs font-mono tracking-wider uppercase transition-colors"
+            className="w-full rounded-lg bg-accent text-accent-foreground hover:bg-accent-hover py-2 text-[11px] font-mono tracking-wider uppercase transition-colors"
           >
             Respond to RFP
           </button>
@@ -344,20 +342,20 @@ export default function RfpBoard() {
 
   return (
     <>
-      <section className="flex flex-col gap-6">
+      <section className="flex flex-col gap-4">
         {/* Header */}
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2">
             <Building2 className="w-4 h-4 text-accent/70" />
-            <h2 className="font-serif text-xl text-foreground">Requests for Proposals</h2>
+            <h2 className="font-serif text-lg text-foreground">Requests for Proposals</h2>
           </div>
-          <p className="text-sm text-foreground/45 font-mono">
+          <p className="text-xs text-foreground/45 font-mono">
             {filtered.length} open {filtered.length === 1 ? "opportunity" : "opportunities"} — under-served districts inviting development
           </p>
         </div>
 
         {/* Category filters */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setActiveCategory("all")}
             className={cn(
@@ -396,7 +394,7 @@ export default function RfpBoard() {
         {/* Grid */}
         <motion.div
           layout
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-3 grid-cols-1"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((rfp, index) => (

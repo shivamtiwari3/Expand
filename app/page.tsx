@@ -1,6 +1,7 @@
 import { XpandHeader } from "@/components/marketing/xpand-header";
 import { XpandHero } from "@/components/marketing/xpand-hero";
 import { CtaDashboard } from "@/components/marketing/cta-dashboard";
+import { ViewPitchButton } from "@/components/marketing/view-pitch-button";
 import { DemoFlowSections } from "@/components/marketing/demo-flow-sections";
 import { LIVE, DATA } from "@/lib/data";
 
@@ -30,7 +31,7 @@ const FEATURES = [
 export default function Home() {
   return (
     <>
-      <XpandHeader />
+      <XpandHeader trailing={<ViewPitchButton />} />
       <main className="w-full">
         <XpandHero />
 

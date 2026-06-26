@@ -25,3 +25,8 @@ export async function GET(req: Request) {
 
   return NextResponse.json(messages);
 }
+
+export async function DELETE() {
+  await prisma.chatMessage.deleteMany();
+  return NextResponse.json({ ok: true });
+}

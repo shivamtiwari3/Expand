@@ -23,12 +23,30 @@ function parseCSV(filename: string): Record<string, string>[] {
 }
 
 function getDistrictCoords(): Record<string, { lat: number; lng: number }> {
-  const rows = parseCSV("districts.csv");
-  const map: Record<string, { lat: number; lng: number }> = {};
-  for (const r of rows) {
-    map[r.district] = { lat: parseFloat(r.latitude), lng: parseFloat(r.longitude) };
+  try {
+    const filePath = join(process.cwd(), "lib", "xpand-data.json");
+    const raw = readFileSync(filePath, "utf-8");
+    const data = JSON.parse(raw);
+    const map: Record<string, { lat: number; lng: number }> = {};
+    for (const d of data.districts) {
+      map[d.name] = { lat: d.lat, lng: d.lng };
+    }
+    // Also load from CSV for districts not in xpand-data
+    const rows = parseCSV("districts.csv");
+    for (const r of rows) {
+      if (!map[r.district]) {
+        map[r.district] = { lat: parseFloat(r.latitude), lng: parseFloat(r.longitude) };
+      }
+    }
+    return map;
+  } catch {
+    const rows = parseCSV("districts.csv");
+    const map: Record<string, { lat: number; lng: number }> = {};
+    for (const r of rows) {
+      map[r.district] = { lat: parseFloat(r.latitude), lng: parseFloat(r.longitude) };
+    }
+    return map;
   }
-  return map;
 }
 
 function jitter(base: number, range = 0.012): number {
@@ -141,27 +159,30 @@ export async function GET(request: Request) {
     const apiKey = process.env.UAE_DATA_API_KEY;
     if (apiKey) {
       try {
-        const url = `https://uae-data-api.evoost-ai.workers.dev/v1/listings/search?emirate=Abu%20Dhabi&transaction_type=sale&limit=50`;
+        const url = `https://uae-data-api.evoost-ai.workers.dev/v1/listings/search?emirate=Abu%20Dhabi&limit=100&page=1`;
         const res = await fetch(url, {
-          headers: { "x-api-key": apiKey, "Content-Type": "application/json" },
+          headers: { "x-api-key": apiKey, Accept: "application/json" },
         });
         if (res.ok) {
           const data = await res.json();
-          const listings = data.listings || data.results || [];
-          result.live = listings
-            .filter((l: any) => l.latitude && l.longitude)
+          const items = data.items || [];
+          result.live = items
+            .filter((l: any) => l.area && districtCoords[l.area])
             .slice(0, 100)
-            .map((l: any, i: number) => ({
-              id: `live-${i}`,
-              lat: parseFloat(l.latitude),
-              lng: parseFloat(l.longitude),
-              title: l.title || l.name || "Live listing",
-              price: l.price || l.price_aed || 0,
-              type: l.transaction_type || "sale",
-              area: l.area || l.district || "",
-              bedrooms: l.bedrooms || 0,
-              size: l.size_sqm || l.built_up_area || 0,
-            }));
+            .map((l: any, i: number) => {
+              const coords = districtCoords[l.area];
+              return {
+                id: l.id || `live-${i}`,
+                lat: jitter(coords.lat, 0.015),
+                lng: jitter(coords.lng, 0.015),
+                title: l.title || "Live listing",
+                price: l.price || 0,
+                type: l.transaction_type || "sale",
+                area: l.area || "",
+                bedrooms: l.bedrooms || 0,
+                size: l.built_up_area_sqm || 0,
+              };
+            });
         } else {
           result.live = [];
         }

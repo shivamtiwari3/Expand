@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model RfpResponse {
+  id        String   @id @default(cuid())
+  rfpId     String
+  district  String
+  name      String
+  org       String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model VentureConnect {
+  id        String   @id @default(cuid())
+  ventureId String
+  district  String
+  name      String
+  firm      String
+  capital   String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  role      String
+  content   String
+  district  String?
+  createdAt DateTime @default(now())
+}
+
+model InsightRequest {
+  id        String   @id @default(cuid())
+  role      String
+  emirate   String?
+  area      String?
+  sectors   String
+  budget    String
+  result    String?
+  createdAt DateTime @default(now())
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sparkles, ArrowUp } from "lucide-react";
+import { Sparkles, ArrowUp, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useDashboard } from "./DashboardProvider";
 
@@ -11,6 +11,12 @@ interface Msg {
   source?: string;
 }
 
+const GREETING: Msg = {
+  role: "ai",
+  text: "Hi — I'm K2, grounded on Xpand's UAE service-gap data. Ask me where to build, which areas are underserved, or what a district needs.",
+  source: "k2",
+};
+
 const SUGGESTIONS = [
   "Which areas are most underserved for schools?",
   "Where should I build clinics next year?",
@@ -19,16 +25,27 @@ const SUGGESTIONS = [
 
 export default function AskK2() {
   const { selected } = useDashboard();
-  const [msgs, setMsgs] = useState<Msg[]>([
-    {
-      role: "ai",
-      text: "Hi — I'm K2, grounded on Xpand's UAE service-gap data. Ask me where to build, which areas are underserved, or what a district needs.",
-      source: "k2",
-    },
-  ]);
+  const [msgs, setMsgs] = useState<Msg[]>([GREETING]);
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    fetch("/api/chat")
+      .then((r) => r.json())
+      .then((rows: { role: string; content: string }[]) => {
+        if (rows.length > 0) {
+          const loaded: Msg[] = rows.map((r) => ({
+            role: r.role as "user" | "ai",
+            text: r.content,
+          }));
+          setMsgs([GREETING, ...loaded]);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setHydrated(true));
+  }, []);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -39,7 +56,6 @@ export default function AskK2() {
     setQ("");
     setMsgs((m) => [...m, { role: "user", text: question }]);
     setLoading(true);
-    // Persist user message
     fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -54,7 +70,6 @@ export default function AskK2() {
       const data = await res.json();
       const aiText = data.text ?? "No answer.";
       setMsgs((m) => [...m, { role: "ai", text: aiText, source: data.source }]);
-      // Persist AI response
       fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -69,16 +84,30 @@ export default function AskK2() {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center gap-2 border-b border-border/60 px-4 py-3">
-        <span className="grid size-6 place-items-center rounded-md bg-accent/15 text-accent">
-          <Sparkles className="size-3.5" />
-        </span>
-        <div>
-          <div className="text-sm font-medium text-foreground">Talk to Xpand</div>
-          <div className="font-mono text-[9px] uppercase tracking-wider text-foreground-muted">
-            Direct line to K2 Think
+      <div className="flex items-center justify-between border-b border-border/60 px-4 py-3">
+        <div className="flex items-center gap-2">
+          <span className="grid size-6 place-items-center rounded-md bg-accent/15 text-accent">
+            <Sparkles className="size-3.5" />
+          </span>
+          <div>
+            <div className="text-sm font-medium text-foreground">Talk to Xpand</div>
+            <div className="font-mono text-[9px] uppercase tracking-wider text-foreground-muted">
+              Direct line to K2 Think
+            </div>
           </div>
         </div>
+        {msgs.length > 1 && (
+          <button
+            onClick={() => {
+              fetch("/api/chat", { method: "DELETE" }).catch(() => {});
+              setMsgs([GREETING]);
+            }}
+            className="grid size-7 place-items-center rounded-md text-foreground-muted transition hover:bg-surface-2 hover:text-foreground"
+            title="Clear chat"
+          >
+            <Trash2 className="size-3.5" />
+          </button>
+        )}
       </div>
 
       <div className="flex-1 space-y-3 overflow-y-auto p-4">
@@ -115,7 +144,7 @@ export default function AskK2() {
         <div ref={endRef} />
       </div>
 
-      {msgs.length <= 1 && (
+      {hydrated && msgs.length <= 1 && (
         <div className="flex flex-wrap gap-1.5 px-4 pb-2">
           {SUGGESTIONS.map((s) => (
             <button
